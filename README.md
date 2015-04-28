@@ -10,7 +10,7 @@
 - On the fly playlist creation
 - Playlist export/import
 
-<h4>[Check it out yourself!](http://htmlpreview.github.io/?https://github.com/drpoup/vkdl/blob/master/index.html)</h4>
+[<h4>Check it out yourself!</h4>](http://htmlpreview.github.io/?https://github.com/drpoup/vkdl/blob/master/index.html)
 
 Disclaimer:
 **Only Chrome web-browser is officially supported**
