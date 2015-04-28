@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/vnd.microsoft.icon">
+
+    <title>Vkdl</title>
+
+    <!-- drawer css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/2.4.0/css/drawer.min.css">
+    
+    <!-- Main CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700|Raleway:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+    
+<body class="drawer drawer-right">
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container" role="banner">
+            <div class="navbar-header">
+                <a class="navbar-brand" id="navbar-brand" onclick="window.scrollTo(0, 0);">
+                    <span><img class="logo-image" src="images/Logo.png" height=60px></span><span class="logo-text">Music Player</span>
+                </a>
+            </div>
+            <span id="info-button" class="nomobile"><span class="glyphicon glyphicon-info-sign" ></span><span id="info-button-text">Instructions</span></span>
+
+<!--            Start of drawer code-->
+            <div class="drawer-header">
+                <button type="button" class="drawer-toggle drawer-hamburger">
+                    <span class="sr-only">toggle navigation</span>
+                    <span class="drawer-hamburger-icon"></span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="drawer-main drawer-default">
+        <nav class="drawer-nav" role="navigation">
+            <div class="drawer-brand">Playlist Manager
+            </div>
+
+            <ul class="drawer-menu">
+                <li class="drawer-menu-item">Save your playlist</li>
+            </ul>
+
+            <!--
+THe PLaylist loader               
+                
+-->
+            <div id="save-buttons">
+                        <input id="inputFileNameToSaveAs" class="form-control" placeholder="Filename to Save As..."></input>
+                    
+                        <button onclick="saveTextAsFile()" class="btn btn-primary playlistloadbutton" onmouseover="this.innerHTML = 'Is your mixtape FIRE?'" onmouseout="this.innerHTML = 'Save Text to File'" >Save Text to File</button>                    
+                    <li id="loadmixtape" class="drawer-menu-item">Load your mixtape</li>                        
+                    
+                        <input class="fileselector" type="file" id="fileToLoad">
+                    
+                        <button onclick="loadFileAsText()" class="btn btn-primary playlistloadbutton" onmouseover="this.innerHTML = 'Check out my mixtape fam.'" onmouseout="this.innerHTML = 'Load File'" >Load File</button>
+                       
+                <div id="playlistoutput">
+                    <textarea disabled id="inputTextToSave"></textarea>
+                </div>
+            </div>
+            <!--
+END The PLaylist loader               
+                
+-->
+           <div class="drawer-footer"><span></span>
+            </div>
+        </nav>
+    </div>
+
+    <div class="drawer-overlay">
+        <!-- content -->
+    </div>
+    
+<!--    End of drawer code -->
+    
+<!--Playlist and Player code    -->
+    <div class="wrapper">
+        <div class="container">
+            <div class="col-xs-12">
+
+
+                <div class="list-group" id="playlist">
+                    <div class="list-group-item" id="playlist-list-item">
+                        <div class="playlist"></div>
+                        <audio class="navbar-audio" id="navbar-audio" controls autoplay>
+                            Your browser sucks, get a newer one to use this! (like Google Chrome)
+                        </audio>
+                        <br>
+
+                        <ul id="playlist-item" class="fa-ul fa sortable">
+                        </ul>
+
+                        <button id="clear-button" class="btn">clear playlist</button>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <input id="query" type="text" class="form-control" autofocus>
+                    <span class="input-group-btn">
+						<button class="btn btn-primary search" type="button"><span class="glyphicon glyphicon-search"></span>
+                    </button>
+                    </span>
+                </div>
+
+<!--End of Player and playlist code-->
+
+
+
+<!--Results-->
+                <div id="result">
+                    <h2 id="loading" style="display:none" class="text-center"><span class="glyphicon glyphicon-refresh spin"></span></h2>
+                    <br>
+                    <div class="list-group"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<!--End of Results-->
+    
+<!--Footer    -->
+    <div id="footer">
+        <div class="container">
+            <p class="muted credit text-center">Developed by <a href="https://github.com/drpoup">drpoup</a> @ <a href="http://stereostance.com" target="_blank">Stereostance.com</a> - based on code from <a href="https://github.com/alashow/music" target="_blank">Alashow</a>
+            </p>
+        </div>
+    </div>
+<!--End of Footer-->
+    
+    <!--    <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="js/bootbox.min.js"></script>    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <!-- jquery & iscroll & dropdown (for drawer)-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.1/iscroll-min.js"></script>
+    <script src="//cdn.rawgit.com/ungki/bootstrap.dropdown/3.3.1/dropdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/2.4.0/js/jquery.drawer.min.js"></script>
+    
+    <!-- Playlist manager JS-->
+    <script src="js/playlist-saver.js"></script>
+    <!-- Main JS file   -->
+    <script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+
+<!--Capthcha code-->
+    <div class="modal fade" id="captchaModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body" id="captchaModalBody">
+                    <img id="captchaImage">
+                    <input type="text" id="captchaKey" class="form-control">
+                    <button type="button" id="captchaSend" class="btn btn-primary btn-block">Prove you aren't a robot</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--End of Captcha code -->
+
+</body>
+
+</html>
