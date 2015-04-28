@@ -9,6 +9,7 @@
 - Clean interface
 - On the fly playlist creation
 - Playlist export/import
+- Linkable URL Hashtag searches (example: [www.vkdl.com/#French Kiwi Juice)](http://htmlpreview.github.io/?https://github.com/drpoup/vkdl/blob/master/index.html#french kiwi juice)
 
 [<h4>Check it out yourself!</h4>](http://htmlpreview.github.io/?https://github.com/drpoup/vkdl/blob/master/index.html)
 
