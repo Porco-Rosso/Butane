@@ -30,14 +30,9 @@ $(document).ready(function ($) {
         url: "https://api.vk.com/method/audio.search",
         sort: 2,
         autoComplete: 0,
-        accessToken: "43105d78b7e5c79fd46e2623f541f39b7aa30889d55f47736e4cb94b4a0205c80f259ed2eb0e104cbf856",
+        accessToken: "4d45c6ebef3b05a910071c948bb1374015c9e47ad953fba2f631d8bc1fca425a0a0bffcb4955d3af90c07",
         count: 300
     }
-
-    //old key: 		 3bced7864f70a9f7735bd1ed96b7c83f0ec1f643b4310504a4ebb9c9eb8fffd405196cdd75ba34a78b8c502e0a8da
-
-    // my key: 		 43105d78b7e5c79fd46e2623f541f39b7aa30889d55f47736e4cb94b4a0205c80f259ed2eb0e104cbf856
-    //alt keys: 			 8a6447ad01601ad3da12273d7cbaaf3c8f467a4960bc68f67f60571fe16641fe91c78e7c8efce58f0cbd1
 
 
     //Config for LastFm Artist Search Api
