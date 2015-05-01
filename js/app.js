@@ -32,7 +32,7 @@ $(document).ready(function ($) {
         autoComplete: 0,
         accessToken: "4d45c6ebef3b05a910071c948bb1374015c9e47ad953fba2f631d8bc1fca425a0a0bffcb4955d3af90c07",
         count: 300
-    }
+    };
 
 
     //Config for LastFm Artist Search Api
@@ -42,7 +42,7 @@ $(document).ready(function ($) {
         apiKey: "8b7af513f19366e766af02c85879b0ac",
         format: "json",
         limit: 10
-    }
+    };
 
     //        //Autocomplete for search input
     //        $("#query").autocomplete({
@@ -199,6 +199,8 @@ var hash = window.location.hash;
                         $("#playlist-item span:even").addClass("fa-li fa fa-times");
                         $('.sortable').sortable();
                         $('.sortable').disableSelection();
+                        $("#playlist-item li").addClass("selected");
+                        
 
                     } else {
                         //add song to list only
@@ -244,32 +246,7 @@ var hash = window.location.hash;
 
 
 
-
-    //spacebar pause-play   
-    window.onkeydown = function (e) {
-        if (e.keyCode == 32 && e.target == document.body) {
-            e.preventDefault();
-            var audio = document.getElementById("navbar-audio");
-            if (audio.paused) {
-                audio.play();
-            } else {
-                audio.pause();
-            }
-            return false;
-
-        }
-    };
     
-        //next track right button   
-    window.onkeydown = function (e) {
-        if (e.keyCode == 39 && e.target == document.body) {
-            e.preventDefault();
-            playNext();
-            return false;
-
-        }
-    };
-
     //Sec To Time
     Number.prototype.toTime = function () {
         var sec_num = parseInt(this, 10);
@@ -331,7 +308,7 @@ function playlistItemClick(clickedElement) {
         selected.classList.remove("selected");
     }
     clickedElement.classList.add("selected");
-    var clickedelementlink = clickedElement.getElementsByTagName('a')[0]
+    var clickedelementlink = clickedElement.getElementsByTagName('a')[0];
     _player.src = clickedelementlink.getAttribute("href");
     _player.play();
     document.title = $('.selected').text();
@@ -340,13 +317,20 @@ function playlistItemClick(clickedElement) {
     $("#playlist-item li.selected i").removeClass("fa-li fa fa-angle-right");
     $("#playlist-item li.selected i").addClass("fa-li fa  fa-volume-up ");
     
-    window.location.hash = $('.selected').text();
+    window.location.hash = $('.selected').text().split(' ').join('+');
 }
 
 function playNext() {
     var selected = _playlist.querySelector("li.selected");
     if (selected && selected.nextSibling) {
         playlistItemClick(selected.nextSibling);
+    }
+}
+
+function playPrevious() {
+    var selected = _playlist.querySelector("li.selected");
+    if (selected && selected.previousSibling) {
+        playlistItemClick(selected.previousSibling);
     }
 }
 
@@ -405,3 +389,37 @@ $(document).on("click", '#playlist-item span.fa-li.fa.fa-times', function (e) {
 
         });
     });
+
+
+// hotkeys script
+
+function playorpause() {
+    var audio = document.getElementById("navbar-audio");
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+            return false;
+}
+
+    //spacebar pause-play   
+    window.onkeydown = function (e) {
+        if (e.keyCode == 32 && e.target == document.body) {
+            e.preventDefault();
+            playorpause();
+        }
+            else { //right arrow next song →
+                    if (e.keyCode == 39 && e.target == document.body) {
+            e.preventDefault();
+            playNext();
+                        }
+                else { // left arrow next song ←
+                        if (e.keyCode == 37 && e.target == document.body) {
+            e.preventDefault();
+            playPrevious();
+                            }
+                }
+        
+            }   
+    };
