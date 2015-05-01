@@ -8,8 +8,9 @@
 - Ginormous database of songs
 - Clean interface
 - On the fly playlist creation
-- Playlist export/import
-- Linkable URL Hashtag searches (example: [www.vkdl.com/#FKJ)](http://htmlpreview.github.io/?https://github.com/drpoup/vkdl/blob/master/index.html#FKJ)
+- Playlist export/import as simple human-readable `.txt` files
+- Linkable URL Hashtag searches (example: [www.vkdl.com/#French Kiwi Juice](http://htmlpreview.github.io/?https://github.com/drpoup/vkdl/blob/master/index.html#French+Kiwi+Juice))
+- Hotkey functionality (ie: → for next song, `spacebar` for play/pause)
 
 [<h4>Check it out yourself!</h4>](http://htmlpreview.github.io/?https://github.com/drpoup/vkdl/blob/master/index.html)
 
@@ -39,14 +40,14 @@ ___
 ---
  **Uses the following publically available libraries:** 
  - VK API
- - bootstrap (Max CDN)
+ - bootstrap
  - bootstrap dropdown
  - jquery
  - jquery-ui
  - font-awesome
  - google fonts
  - bootbox.js
- - iScrol.js
+ - iScroll.js
  - jquery drawer
  
 ---
