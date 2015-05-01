@@ -134,7 +134,7 @@ function loadFileAsText() {
         window.searchforplaylist = searchforplaylist;
 
 
-        //super annoying async list loading function, solved        
+        //super annoying async list loading function, solved ~ well enough        
         var i = 0;
 
         function forloop() {
