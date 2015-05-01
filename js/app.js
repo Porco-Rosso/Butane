@@ -81,7 +81,7 @@ $(document).ready(function ($) {
 var hash = window.location.hash;
     //For sharing search links, like http://vkdl.stereostance.com/#fkj
     if (hash.length > 1) {
-        hash = hash.substring(1, hash.length); //remove hash from query
+        hash = hash.substring(1, hash.length).split('+').join(' '); //remove hash from query
         search(hash, null, null, true);
         $('#query').val(hash);
     } else {
@@ -108,7 +108,7 @@ var hash = window.location.hash;
 
     //Main function for search
     function search(_query, captcha_sid, captcha_key) {
-        window.location.hash = _query;
+        window.location.hash = _query.split(' ').join('+');
         var data = {
             q: _query,
             sort: vkConfig.sort,
