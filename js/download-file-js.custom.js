@@ -34,7 +34,7 @@ if (window.downloadFile.isChrome || window.downloadFile.isSafari) {
          //Set HTML5 download attribute. This will prevent file from opening if supported.
         console.log("setting file name");
          //var fileName = sUrl.substring(sUrl.lastIndexOf('/') + 1, sUrl.length);
-         link.download = name+".pdf";(you need to mention the .extension of the file)
+         link.download = name+".mp3";
      }
 
      //Dispatching click event.
@@ -58,5 +58,15 @@ return true;
 window.downloadFile.isChrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
 window.downloadFile.isSafari = navigator.userAgent.toLowerCase().indexOf('safari') > -1;
 
-Call the download function as below
-download('./filepath','filename');
+
+$(document).on("click", '.glyphicon-cloud-download', function () {
+    
+        var nameofthedownload = $(this).parent().parent().parent().find('a').attr('download');
+        var urltodownload = $(this).parent().parent().parent().find('a').attr('link');
+       
+        console.log(urltodownload);
+        console.log(nameofthedownload);
+        
+    downloadFile(urltodownload,nameofthedownload);
+        
+});
