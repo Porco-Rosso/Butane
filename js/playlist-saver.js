@@ -126,7 +126,7 @@ function loadFileAsText() {
 
                     // build playlist using results  
                     $('#playlist-item').append('<li><i class="fa-li fa fa-angle-right"></i><a href="' + msg.response[1].url + '">' + msg.response[1].artist + ' - ' + msg.response[1].title + '</a><span class="fa-li fa fa-times"></span><span class="fa-li fa fa-sort"></span></li>');
-
+                    window.index++;
                 }
             });
         }

@@ -163,7 +163,7 @@ var hash = window.location.hash;
 
                 $('.play').on('click', function (event) {
 
-                    if (index == 0) {
+                    if (window.index == 0) {
 
                         //Change source of audio, show then play
                         $('.navbar-audio').attr('src', $(this).parent().find('a').attr('href'));
@@ -189,7 +189,7 @@ var hash = window.location.hash;
                         newItem.appendChild(span2);
                         ulist.appendChild(newItem);
 
-                        index++;
+                        window.index++;
                         var _player = document.getElementById("navbar-audio"),
                             _playlist = document.getElementById("playlist-item");
 
@@ -221,9 +221,10 @@ var hash = window.location.hash;
                         newItem.appendChild(span);
                         newItem.appendChild(span2);
                         ulist.appendChild(newItem);
-
-                        var _player = document.getElementById("navbar-audio"),
-                            _playlist = document.getElementById("playlist-item");
+                        
+                        window.index++;
+//                        var _player = document.getElementById("navbar-audio"),
+//                            _playlist = document.getElementById("playlist-item");
 
                         changeicons();
                         document.title = $(this).parent().text().slice(7);
@@ -367,13 +368,13 @@ $(document).on("click", '#info-button', function (e) {
 // clear palylist script
 $(document).on("click", '#clear-button', function (e) {
         $('#playlist-item').empty();
-        index = 0;
+        window.index = 0;
 });
 
 // clear palylist item script
 $(document).on("click", '#playlist-item span.fa-li.fa.fa-times', function (e) {
         $(this).parent().remove();
-        index--;
+        window.index--;
 });
 
     //scroll back to top script
