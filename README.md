@@ -1,4 +1,4 @@
-![VKDL](http://i.imgur.com/oTtLOYm.png "Logo Title Text 1")
+<img src=https://raw.githubusercontent.com/Porco-Rosso/vkdl/vkdl-dev/images/Logo.png width=200 height=60 />
 =====
 
 *A web app to search and download free music from Vk.com*
