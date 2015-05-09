@@ -387,7 +387,7 @@ $(document).on("click", '#playlist-item span.fa-li.fa.fa-times', function (e) {
             if (ScrollTop > 600) {
                 $('span.logo-text').text('Scroll back to top');
             } else {
-                $('span.logo-text').text('Music Downloader');
+                $('span.logo-text').text('Music Player');
             }
 
         });
