@@ -1,4 +1,4 @@
-![VKDL](http://i.imgur.com/oTtLOYm.png "Logo Title Text 1")
+<img src=https://raw.githubusercontent.com/Porco-Rosso/vkdl/vkdl-dev/images/Logo.png width=200 height=60 />
 =====
 
 *A web app to search and download free music from Vk.com*
@@ -26,10 +26,7 @@ ___
 - Based on Alashow's awesome original design: [https://github.com/alashow/music](https://github.com/alashow/music)
 
 
-- The database being searched is [vk.com](https://vk.com)'s huge array of user-uploaded material. That being said, quality varies, but is usually great, especially for obscure content. ~ 320kbs or **at least** better than *Youtube* rips!
-
-
-- Some features (for instance the playlist export/import features) only run properly if you are hosting the page from a webserver. (as opposed from just opening the .html file from your filesystem)
+- The database being searched is [vk.com](https://vk.com)'s huge array of user-uploaded material. That being said, quality varies, but is usually great, especially for obscure content. It's **at least** better than *Youtube* rips!
 
 
 - Captchas are sometimes required to be entered, there is nothing I can do about this (*sorry*)
