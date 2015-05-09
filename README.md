@@ -26,10 +26,7 @@ ___
 - Based on Alashow's awesome original design: [https://github.com/alashow/music](https://github.com/alashow/music)
 
 
-- The database being searched is [vk.com](https://vk.com)'s huge array of user-uploaded material. That being said, quality varies, but is usually great, especially for obscure content. ~ 320kbs or **at least** better than *Youtube* rips!
-
-
-- Some features (for instance the playlist export/import features) only run properly if you are hosting the page from a webserver. (as opposed from just opening the .html file from your filesystem)
+- The database being searched is [vk.com](https://vk.com)'s huge array of user-uploaded material. That being said, quality varies, but is usually great, especially for obscure content. It's **at least** better than *Youtube* rips!
 
 
 - Captchas are sometimes required to be entered, there is nothing I can do about this (*sorry*)
