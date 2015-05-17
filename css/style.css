@@ -13,9 +13,8 @@ body {
     background-color: #34495e;
 }
 .logo-image {
-      margin-top: 3px;
-      height: 40px;
-      padding-right: 15px;
+    height: 30px;
+    padding-right: 15px;
 }
 
 .logo-text {
@@ -33,6 +32,10 @@ body {
 .navbar-default .navbar-brand span {
     color: #95a5a6;
     font-family: 'Raleway';
+}
+
+.navbar-brand{
+    padding-top: 20px;
 }
 .navbar-default {
     border-color: #333333;
