@@ -102,8 +102,8 @@ var hash = window.location.hash;
 
 
     //Append Error To List
-    function appendError(error) {
-        $('#result > .list-group').append('<li class="list-group-item list-group-item-danger">' + error + '</li>');
+    function prependError(error) {
+        $('#result > .list-group').prepend('<li class="list-group-item list-group-item-danger">' + error + '</li>');
         $('#loading').hide();
     }
 
@@ -131,14 +131,14 @@ var hash = window.location.hash;
             },
             // error handling
             error: function () {
-                appendError('Internet error...');
+                prependError('Internet error...');
             },
             success: function (msg) {
                 if (msg.error) {
                     if (msg.error.error_code == 5) {
-                        appendError("Access Token error, contact me");
+                        prependError("Access Token error, contact me");
                     } else {
-                        appendError("Oops, something went wrong : " + msg.error.error_msg);
+                        prependError("Oops, something went wrong : " + msg.error.error_msg);
                     }
                     if (msg.error.error_code == 14) {
                         showCaptcha(msg.error.captcha_sid, msg.error.captcha_img);
@@ -147,7 +147,7 @@ var hash = window.location.hash;
                 };
 
                 if (msg.response == 0) {
-                    appendError("Sorry, our trained team of monkeys couldn't find anything for this search query.");
+                    prependError("Sorry, our trained team of monkeys couldn't find anything for this search query.");
                     return;
                 };
 
