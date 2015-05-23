@@ -103,6 +103,7 @@ var hash = window.location.hash;
 
     //Append Error To List
     function prependError(error) {
+        $('#result > .list-group').html("");
         $('#result > .list-group').prepend('<li class="list-group-item list-group-item-danger">' + error + '</li>');
         $('#loading').hide();
     }
