@@ -24,13 +24,14 @@ $(document).ready(function ($) {
      * Now open this url from your logined to vk browser, this will redirect to blank.html with your token:
      * https://oauth.vk.com/authorize?client_id=APP_ID&client_secret=CLIENT_SECRET&scope=audio,offline&response_type=token
      *======================================================================== */
-
+//        accessToken: "4d45c6ebef3b05a910071c948bb1374015c9e47ad953fba2f631d8bc1fca425a0a0bffcb4955d3af90c07",    First old token (Alashow one)
+    
     //Config for vk audio.search api
     var vkConfig = {
         url: "https://api.vk.com/method/audio.search",
         sort: 2,
         autoComplete: 0,
-        accessToken: "4d45c6ebef3b05a910071c948bb1374015c9e47ad953fba2f631d8bc1fca425a0a0bffcb4955d3af90c07",
+        accessToken: "ccd09c5c990069316002d28ab7f0e0ba5841fbcdc626c0524afbe4faea92451ea43a4240cab3de8eda4df", // Public Vkdl 1
         count: 300
     };
 
