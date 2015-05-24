@@ -24,13 +24,14 @@ $(document).ready(function ($) {
      * Now open this url from your logined to vk browser, this will redirect to blank.html with your token:
      * https://oauth.vk.com/authorize?client_id=APP_ID&client_secret=CLIENT_SECRET&scope=audio,offline&response_type=token
      *======================================================================== */
-
+//        accessToken: "4d45c6ebef3b05a910071c948bb1374015c9e47ad953fba2f631d8bc1fca425a0a0bffcb4955d3af90c07",    First old token (Alashow one)
+    
     //Config for vk audio.search api
     var vkConfig = {
         url: "https://api.vk.com/method/audio.search",
         sort: 2,
         autoComplete: 0,
-        accessToken: "4d45c6ebef3b05a910071c948bb1374015c9e47ad953fba2f631d8bc1fca425a0a0bffcb4955d3af90c07",
+        accessToken: "ccd09c5c990069316002d28ab7f0e0ba5841fbcdc626c0524afbe4faea92451ea43a4240cab3de8eda4df", // Public Vkdl 1
         count: 300
     };
 
@@ -101,8 +102,9 @@ var hash = window.location.hash;
 
 
     //Append Error To List
-    function appendError(error) {
-        $('#result > .list-group').append('<li class="list-group-item list-group-item-danger">' + error + '</li>');
+    function prependError(error) {
+        $('#result > .list-group').html("");
+        $('#result > .list-group').prepend('<li class="list-group-item list-group-item-danger">' + error + '</li>');
         $('#loading').hide();
     }
 
@@ -130,14 +132,14 @@ var hash = window.location.hash;
             },
             // error handling
             error: function () {
-                appendError('Internet error...');
+                prependError('Internet error...');
             },
             success: function (msg) {
                 if (msg.error) {
                     if (msg.error.error_code == 5) {
-                        appendError("Access Token error, contact me");
+                        prependError("Access Token error, contact me");
                     } else {
-                        appendError("Oops, something went wrong : " + msg.error.error_msg);
+                        prependError("Oops, something went wrong : " + msg.error.error_msg);
                     }
                     if (msg.error.error_code == 14) {
                         showCaptcha(msg.error.captcha_sid, msg.error.captcha_img);
@@ -146,7 +148,7 @@ var hash = window.location.hash;
                 };
 
                 if (msg.response == 0) {
-                    appendError("Sorry, our trained team of monkeys couldn't find anything for this search query.");
+                    prependError("Sorry, our trained team of monkeys couldn't find anything for this search query.");
                     return;
                 };
 

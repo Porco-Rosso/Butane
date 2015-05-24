@@ -12,7 +12,7 @@
 - Linkable URL Hashtag searches (example: [www.vkdl.com/#French Kiwi Juice](http://htmlpreview.github.io/?https://github.com/drpoup/vkdl/blob/master/index.html#French+Kiwi+Juice))
 - Hotkey functionality (ie: → for next song, `spacebar` for play/pause)
 
-[<h4>Check it out yourself!</h4>](http://htmlpreview.github.io/?https://github.com/drpoup/vkdl/blob/master/index.html)
+[<h4>Check it out yourself!</h4>](https://rawgit.com/Porco-Rosso/vkdl/master/index.html)
 
 Disclaimer:
 **Only Chrome web-browser is officially supported**
