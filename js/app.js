@@ -174,19 +174,18 @@ var hash = window.location.hash;
 
 
                         var a = document.createElement("a");
-                        var i = document.createElement("i");
-                        var span = document.createElement("span");
-                        var span2 = document.createElement("span");
                         var ulist = document.getElementById("playlist-item");
                         var newItem = document.createElement("li");
 
 
                         a.textContent = $(this).parent().text().slice(7);
                         a.setAttribute('href', $(this).parent().find('a').attr('href'));
-                        newItem.appendChild(i);
+                        a.setAttribute('download' , a.textContent);
+                        newItem.innerHTML = newItem.innerHTML + '<i class="fa-li fa fa-volume-up"></i>';
                         newItem.appendChild(a);
-                        newItem.appendChild(span);
-                        newItem.appendChild(span2);
+                        newItem.innerHTML = newItem.innerHTML +'<span class="fa-li fa fa-times"></span>'; // delete icon
+                        newItem.innerHTML = newItem.innerHTML +'<span class="fa-li fa fa-cloud-download"><a class="fakelink" target="_blank" href="' + $(this).parent().find('a').attr('href') + '" download="' + a.textContent + '.mp3"></a></span>'; // download link
+                        newItem.innerHTML = newItem.innerHTML +'<span class="fa-li fa fa-sort"></span>'; //sorting icon
                         ulist.appendChild(newItem);
 
                         index++;
@@ -196,9 +195,6 @@ var hash = window.location.hash;
                         changeicons();
                         document.title = $(this).parent().text().slice(7);
 
-                        $("#playlist-item i").addClass("fa-li fa fa-angle-right");
-                        $("#playlist-item span:odd").addClass("fa-li fa fa-sort");
-                        $("#playlist-item span:even").addClass("fa-li fa fa-times");
                         $('.sortable').sortable();
                         $('.sortable').disableSelection();
                         $("#playlist-item li").addClass("selected");
@@ -208,18 +204,18 @@ var hash = window.location.hash;
                         //add song to list only
 
                         var a = document.createElement("a");
-                        var i = document.createElement("i");
-                        var span = document.createElement("span");
-                        var span2 = document.createElement("span");
                         var ulist = document.getElementById("playlist-item");
                         var newItem = document.createElement("li");
 
                         a.textContent = $(this).parent().text().slice(7);
                         a.setAttribute('href', $(this).parent().find('a').attr('href'));
-                        newItem.appendChild(i);
+                        a.setAttribute('download' , a.textContent);
+                        newItem.innerHTML = newItem.innerHTML + '<i class="fa-li fa fa-angle-right"></i>';
                         newItem.appendChild(a);
-                        newItem.appendChild(span);
-                        newItem.appendChild(span2);
+                        newItem.innerHTML = newItem.innerHTML +'<span class="fa-li fa fa-times"></span>'; // delete icon
+                        newItem.innerHTML = newItem.innerHTML +'<span class="fa-li fa fa-cloud-download"><a class="fakelink" target="_blank" href="' + $(this).parent().find('a').attr('href') + '" download="' + a.textContent + '.mp3"></a></span>'; // download link
+                        newItem.innerHTML = newItem.innerHTML +'<span class="fa-li fa fa-sort"></span>'; //sorting icon
+                        
                         ulist.appendChild(newItem);
 
                         var _player = document.getElementById("navbar-audio"),
@@ -228,9 +224,6 @@ var hash = window.location.hash;
                         changeicons();
                         document.title = $(this).parent().text().slice(7);
 
-                        $("#playlist-item i").addClass("fa-li fa fa-angle-right");
-                        $("#playlist-item span:odd").addClass("fa-li fa fa-sort");
-                        $("#playlist-item span:even").addClass("fa-li fa fa-times");
                         $('.sortable').sortable();
                         $('.sortable').disableSelection();
 
@@ -357,12 +350,15 @@ $(document).on("click", '#info-button', function (e) {
                 label: "<span class='glyphicon glyphicon-music'></span> Let's get Jammin'! <span class='glyphicon glyphicon-music'></span>",
                 className: "btn-success",
                 callback: function () {
-                    console.log("Alert Callback");
+                    console.log("Closed info-box");
                 }
             }
         }
     });
 });
+
+// download Song in playlist
+
 
 // clear palylist script
 $(document).on("click", '#clear-button', function (e) {
