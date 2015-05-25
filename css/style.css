@@ -114,16 +114,22 @@ audio {
     font-family: 'Roboto', sans-serif; 
 }
 
-.fa-cloud-download{
+#playlist-item > li > span.fa-li.fa.fa-cloud-download{
     pointer-events: auto;
+    margin-right: -10px;
 }
 
-a.fakelink{
-    display:block;
-    height:100%;
-    width:100%;
-    z-index: 10;
-    pointer-events: auto;
+#playlist-item > li > span.fa-li.fa.fa-cloud-download:hover{
+    color:#006dcc;
+}
+
+#playlist-item > li > span.fa-li.fa.fa-cloud-download > a{
+  display: inline-block;
+  z-index: 10;
+  width: 20px;
+  height: 12px;
+  margin-left: -20px;
+  pointer-events: auto
 }
 
 #playlist-list-item li {

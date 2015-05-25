@@ -180,14 +180,12 @@ var hash = window.location.hash;
 
                         a.textContent = $(this).parent().text().slice(7);
                         a.setAttribute('href', $(this).parent().find('a').attr('href'));
+                        a.setAttribute('download' , a.textContent);
                         newItem.innerHTML = newItem.innerHTML + '<i class="fa-li fa fa-volume-up"></i>';
                         newItem.appendChild(a);
-                        newItem.innerHTML = newItem.innerHTML +'<span class="fa-li fa fa-times"></span>';
-                        
-                        
-                        newItem.innerHTML = newItem.innerHTML +'<span class="fa-li fa fa-cloud-download fakelink" target="_blank" href="' + $(this).parent().find('a').attr('href') + '" download="' + a.textContent + '.mp3"></span>';
-                        
-                        newItem.innerHTML = newItem.innerHTML +'<span class="fa-li fa fa-sort"></span>';
+                        newItem.innerHTML = newItem.innerHTML +'<span class="fa-li fa fa-times"></span>'; // delete icon
+                        newItem.innerHTML = newItem.innerHTML +'<span class="fa-li fa fa-cloud-download"><a class="fakelink" target="_blank" href="' + $(this).parent().find('a').attr('href') + '" download="' + a.textContent + '.mp3"></a></span>'; // download link
+                        newItem.innerHTML = newItem.innerHTML +'<span class="fa-li fa fa-sort"></span>'; //sorting icon
                         ulist.appendChild(newItem);
 
                         index++;
@@ -211,13 +209,12 @@ var hash = window.location.hash;
 
                         a.textContent = $(this).parent().text().slice(7);
                         a.setAttribute('href', $(this).parent().find('a').attr('href'));
+                        a.setAttribute('download' , a.textContent);
                         newItem.innerHTML = newItem.innerHTML + '<i class="fa-li fa fa-angle-right"></i>';
                         newItem.appendChild(a);
-                        newItem.innerHTML = newItem.innerHTML +'<span class="fa-li fa fa-times"></span>';
-                        
-                        newItem.innerHTML = newItem.innerHTML +'<span class="fa-li fa fa-cloud-download" target="_blank" href="' + $(this).parent().find('a').attr('href') + '" download="' + a.textContent + '.mp3"></span>';
-                        
-                        newItem.innerHTML = newItem.innerHTML +'<span class="fa-li fa fa-sort"></span>';
+                        newItem.innerHTML = newItem.innerHTML +'<span class="fa-li fa fa-times"></span>'; // delete icon
+                        newItem.innerHTML = newItem.innerHTML +'<span class="fa-li fa fa-cloud-download"><a class="fakelink" target="_blank" href="' + $(this).parent().find('a').attr('href') + '" download="' + a.textContent + '.mp3"></a></span>'; // download link
+                        newItem.innerHTML = newItem.innerHTML +'<span class="fa-li fa fa-sort"></span>'; //sorting icon
                         
                         ulist.appendChild(newItem);
 
