@@ -156,7 +156,7 @@ var hash = window.location.hash;
                 // build search result list  
                 $('#result > .list-group').html("");
                 for (var i = 1; i < msg.response.length; i++) {
-                    $('#result > .list-group').append('<li class="list-group-item"> <span class="badge download" ><a class="glyphicon glyphicon-cloud-download" href="' + msg.response[i].url + '" download="' + msg.response[i].artist + ' - ' + msg.response[i].title + '.mp3"></a></span> <span class="badge">' + msg.response[i].duration.toTime() + '</span><span class="badge play"><span class="glyphicon glyphicon-play" id="playaddicon"></span></span><a  target="_blank" href="' + msg.response[i].url + '"  download="' + msg.response[i].artist + ' - ' + msg.response[i].title + '.mp3">' + msg.response[i].artist + ' - ' + msg.response[i].title + '</a></li>');
+                    $('#result > .list-group').append('<li class="list-group-item"> <span class="badge download hint--top hint--rounded" data-hint="Save as ..."><a class="glyphicon glyphicon-cloud-download" href="' + msg.response[i].url + '" download="' + msg.response[i].artist + ' - ' + msg.response[i].title + '.mp3"></a></span> <span class="badge hint--top hint--rounded" data-hint="Song length">' + msg.response[i].duration.toTime() + '</span><span class="badge play hint--top hint--rounded" data-hint="Add to player"><span class="glyphicon glyphicon-play" id="playaddicon"></span></span><a  target="_blank" href="' + msg.response[i].url + '"  download="' + msg.response[i].artist + ' - ' + msg.response[i].title + '.mp3">' + msg.response[i].artist + ' - ' + msg.response[i].title + '</a></li>');
 
                 };
 
@@ -184,7 +184,7 @@ var hash = window.location.hash;
                         newItem.innerHTML = newItem.innerHTML + '<i class="fa-li fa fa-volume-up"></i>';
                         newItem.appendChild(a);
                         newItem.innerHTML = newItem.innerHTML +'<span class="fa-li fa fa-times"></span>'; // delete icon
-                        newItem.innerHTML = newItem.innerHTML +'<span class="fa-li fa fa-cloud-download"><a class="fakelink" target="_blank" href="' + $(this).parent().find('a').attr('href') + '" download="' + a.textContent + '.mp3"></a></span>'; // download link
+                        newItem.innerHTML = newItem.innerHTML +'<span class="fa-li fa fa-cloud-download"><a class="fakelink hint--top hint--rounded" data-hint="Save as ..." target="_blank" href="' + $(this).parent().find('a').attr('href') + '" download="' + a.textContent + '.mp3"></a></span>'; // download link
                         newItem.innerHTML = newItem.innerHTML +'<span class="fa-li fa fa-sort"></span>'; //sorting icon
                         ulist.appendChild(newItem);
 
