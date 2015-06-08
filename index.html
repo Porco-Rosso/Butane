@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700|Raleway:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/hint.css/1.3.2/hint.min.css">
     <link rel="stylesheet" href="css/style.css">
     
 </head>
@@ -57,14 +58,14 @@ THe PLaylist loader
                 
 -->
             <div id="save-buttons">
-                        <input id="inputFileNameToSaveAs" class="form-control" placeholder="Filename to Save As..."></input>
+                        <input id="inputFileNameToSaveAs" class="form-control" placeholder="Filename to Save As...">
                     
-                        <button onclick="saveTextAsFile()" class="btn btn-primary playlistloadbutton" onmouseover="this.innerHTML = 'Is your mixtape FIRE?'" onmouseout="this.innerHTML = 'Save Text to File'" >Save Text to File</button>                    
+                        <button onclick="saveTextAsFile()" class="btn btn-primary playlistloadbutton hint--bottom hint--rounded" data-hint="Nice mixtape, fam">Save Playlist to File</button>                    
                     <li id="loadmixtape" class="drawer-menu-item">Load your mixtape</li>                        
                     
                         <input class="fileselector" type="file" id="fileToLoad">
                     
-                        <button onclick="loadFileAsText()" class="btn btn-primary playlistloadbutton" onmouseover="this.innerHTML = 'Check out my mixtape fam.'" onmouseout="this.innerHTML = 'Load File'" >Load File</button>
+                        <button onclick="loadFileAsText()" class="btn btn-primary playlistloadbutton hint--bottom hint--rounded" data-hint="Load FIRE">Load File</button>
                        
                 <div id="playlistoutput">
                     <textarea disabled id="inputTextToSave"></textarea>
@@ -107,7 +108,7 @@ END The PLaylist loader
                 </div>
 
                 <div class="input-group">
-                    <input id="query" type="text" class="form-control" autofocus>
+                    <input id="query" type="text" class="form-control" autofocus placeholder="Search for a song...">
                     <span class="input-group-btn">
 						<button class="btn btn-primary search" type="button"><span class="glyphicon glyphicon-search"></span>
                     </button>
@@ -139,7 +140,6 @@ END The PLaylist loader
     </div>
 <!--End of Footer-->
     
-    <!--    <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="js/bootbox.min.js"></script>    
@@ -162,7 +162,7 @@ END The PLaylist loader
                 <div class="modal-body" id="captchaModalBody">
                     <img id="captchaImage">
                     <input type="text" id="captchaKey" class="form-control">
-                    <button type="button" id="captchaSend" class="btn btn-primary btn-block">Prove you aren't a robot</button>
+                    <button type="button" id="captchaSend" class="btn btn-primary btn-block hint--bottom" data-hint="Beep Boop Bop">Prove you aren't a robot</button>
                 </div>
             </div>
         </div>
