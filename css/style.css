@@ -24,6 +24,7 @@ body {
 
 .logo-text {
     margin-top: -10px;
+    transition: all 0.2s ease;
 }
 
 #navbar-brand > span.logo-text:hover {
@@ -53,7 +54,8 @@ body {
     color: #4D4D4D;
     padding: 15px 15px;
     font-size: 14px;
-    line-height: 20px;    
+    line-height: 20px;
+    transition: all 0.2s ease;
 }
 
 #info-button:hover{
@@ -122,6 +124,7 @@ audio {
 #playlist-item > li > span.fa-li.fa.fa-cloud-download{
     pointer-events: auto;
     margin-right: -10px;
+    transition: all 0.2s ease;
 }
 
 #playlist-item > li > span.fa-li.fa.fa-cloud-download:hover{
@@ -160,6 +163,7 @@ audio {
 
 #playlist-item span.fa-li.fa.fa-times {
 margin-right: -30px;
+transition: all 0.2s ease;
 }
 
 #playlist-item span.fa-li.fa.fa-times:hover {
@@ -194,6 +198,7 @@ position: relative;
 background-color: transparent;
 color: rgba(86, 86, 86, 1);
 text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.37);
+transition: all 0.2s ease;
 }
 
 #clear-button:hover{
@@ -242,6 +247,7 @@ a {
     border-color: #006dcc;
     border-radius: 5px;
     line-height: 1.5;
+    transition: all 0.2s ease;
 }
 .badge:hover {
     background-color: #DC3D24;
@@ -258,11 +264,9 @@ a {
 .btn-primary {
     background-color: #DC3D24;
     border-color: #DC3D24;
+    transition: all 0.2s ease;
 }
-.btn-primary {
-    background-color: #DC3D24;
-    border-color: #DC3D24;
-}
+
 .btn-primary:hover {
     background-color: #006dcc;
     border-color: #006dcc;
@@ -418,8 +422,5 @@ margin-top: 10px;
       color: rgba(86, 86, 86, 1);
     
       overflow: auto;
-      resize: none;
-    
-    
-    
+      resize: none;    
 }
