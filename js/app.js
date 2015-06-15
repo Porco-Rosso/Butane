@@ -248,14 +248,19 @@ var hash = window.location.hash;
         var hours = Math.floor(sec_num / 3600);
         var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
         var seconds = sec_num - (hours * 3600) - (minutes * 60);
-
+        
+        if (hours < 1) {
+            hours = "";
+        } else {
+            hours = hours + ':';
+        }
         if (minutes < 10) {
             minutes = "0" + minutes;
         }
         if (seconds < 10) {
             seconds = "0" + seconds;
         }
-        var time = minutes + ':' + seconds;
+        var time = hours + minutes + ':' + seconds;
         return time;
     }
     
