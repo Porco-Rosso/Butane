@@ -43,6 +43,12 @@ body {
 .navbar-brand{
     padding-top: 20px;
 }
+
+.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand{
+    margin-left: 0px;
+}
+
+
 .navbar-default {
     border-color: #333333;
 }
@@ -76,18 +82,11 @@ position: relative;
 bottom: 3px;
 }
 
-@media screen and (max-width: 480px) {
-
-        .nomobile {
-            display:none;
-        }
-}
-
 .container>.navbar-header,
 .container-fluid>.navbar-header,
 .container>.navbar-collapse,
 .container-fluid>.navbar-collapse {
-    padding-left: 15px;
+    width: 100%;
 }
 audio {
     width: 100%
@@ -423,4 +422,31 @@ margin-top: 10px;
     
       overflow: auto;
       resize: none;    
+}
+
+/*For iphone and mobile devices*/
+@media screen and (max-width: 480px) {
+
+        .nomobile {
+            display:none;
+        }
+        body {
+        padding-top: 45px;
+        }
+       .navbar {
+        height: 45px;
+        min-height: 45px;
+        }
+        .navbar-brand {
+        padding-top: 10px; 
+        }
+        .logo-image {
+        height: 28px;
+        }
+        .list-group-item>.badge+.badge {
+        margin-right: -10px;
+        }
+        .play {
+        padding: 3px 7px;
+        }
 }
