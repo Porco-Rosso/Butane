@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+
+<title>Demo : jPlayer as an audio player</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="skin/metro-fire/jplayer.metro-fire.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function(){
+
+	$("#jquery_jplayer_1").jPlayer({
+		ready: function (event) {
+			$(this).jPlayer("setMedia", {
+				mp3: "http://jplayer.org/audio/mp3/TSP-09-The_werewolf_song.mp3"
+			});
+		},
+		swfPath: "js",
+		supplied: "mp3",
+		wmode: "window",
+		smoothPlayBar: true,
+		keyEnabled: true,
+		remainingDuration: true,
+		toggleDuration: true,
+		volume: 1
+	});
+});
+//]]>
+</script>
+</head>
+<body>
+	<p>NOTE: This document is best opened with Firefox, since Chrome usually prevents from loading external files such as this mp3</p>
+	
+	<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+	<div id="jp_container_1" class="jp-audio">
+		<div class="jp-controls">
+			<a class="jp-play"><i class="fa fa-play"></i></a>
+			<a class="jp-pause"><i class="fa fa-pause"></i></a>
+		</div>
+		<div class="jp-progress">
+			<div class="jp-seek-bar">
+				<div class="jp-play-bar">
+				</div>
+			</div>
+			<div class="jp-current-time"></div>
+		</div>
+		<div class="jp-no-solution">
+			Media Player Error<br>
+			Update your browser or Flash plugin
+		</div>
+	</div>
+	
+</body>
+
+</html>
