@@ -13,10 +13,6 @@ body {
     background-color: #333333
 }
 
-.wrapper {
-    background-color: #34495e;
-}
-
 .logo-image {
     height: 30px;
     padding-right: 15px;
@@ -100,7 +96,7 @@ audio {
 
 .wrapper {
     min-height: 97%;
-    margin-bottom: -40px;
+    background-color: #34495e;
 }
 .wrapper:after {
     content: "";
@@ -180,6 +176,10 @@ color: #DC3D24;
 color: #FF0000;
 }
 
+.list-group{
+  margin-bottom: 45px;
+}
+
 .list-group-item>.badge a {
     color: rgb(255, 247, 231);
 }
@@ -211,24 +211,18 @@ transition: all 0.2s ease;
 color: #DC3D24;
 }
 
-
-#footer,
-.wrapper:after {
-    height: 40px;
-}
 #footer {
-    margin-top: 25px;
-    height: 40px;
     color: #7f8c8d;
     font-size: 0.9em;
     background-color: #333333;
+    margin-top: -20px;
 }
 #footer .container {
     width: auto;
     max-width: 680px;
 }
 #footer .container .credit {
-    margin: 10px 0;
+    padding-top: 5px;
 }
 #footer a {
     margin: 10px 0;
