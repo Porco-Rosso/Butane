@@ -51,7 +51,7 @@ ___
 ---
 ![GNU GPL v2 License](https://img.shields.io/badge/license-GNU%20GPL%20v2-brightgreen.svg?style=flat-square)
 
-[![http://semver.org/](https://img.shields.io/badge/Versioning-Semantic-blue.svg)](http://semver.org/)
+[![http://semver.org/](https://img.shields.io/badge/Versioning-Semantic-blue.svg?style=flat-square)](http://semver.org/)
 
  [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
 
