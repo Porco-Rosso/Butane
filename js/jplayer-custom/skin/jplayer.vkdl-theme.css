@@ -65,6 +65,7 @@
   background-color: #565656;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
+    background: linear-gradient(90deg, #5F5F5F 10%, #4A4A4A 90%);
 }
 .jp-audio .jp-progress .jp-seek-bar {
   position: absolute;
@@ -92,6 +93,7 @@
   background-color: #0072CC;
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
+    background: linear-gradient(90deg, #4776E6 10%, #7454E9 90%);
 /*indent effect*/
 /*
     box-shadow: inset 1px 1px 1px -1px #0D0D0D;
@@ -100,6 +102,18 @@
     border-top-left-radius: 0px;
 */
 }
+
+.jp-audio .jp-progress .jp-buffer-bar {    
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #626262;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+    background: linear-gradient(90deg, #2A2E61 10%, #373C5C 90%)
+}
+    
 .jp-audio .jp-current-time {
   position: absolute;
   top: 0;

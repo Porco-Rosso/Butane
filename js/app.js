@@ -167,9 +167,9 @@ var hash = window.location.hash;
 
                         //Change source of audio, show then play
                         $("#jp_audio_0").attr('src', $(this).parent().find('a').attr('href'));
-                        var audio = $("#jp_audio_0")[0];
-
-                        audio.play();
+                        
+                        $("#jp_audio_0")[0].play();
+                        updatebuffer();
 
 
                         var a = document.createElement("a");
@@ -306,8 +306,8 @@ function playlistItemClick(clickedElement) {
     clickedElement.classList.add("selected");
     var clickedelementlink = clickedElement.getElementsByTagName('a')[0];
     $("#jp_audio_0").attr('src', clickedelementlink.getAttribute("href"));
-//    _player.src = clickedelementlink.getAttribute("href");
     $("#jp_audio_0")[0].play();
+    updatebuffer();
     document.title = $('.selected').text();
     $("#playlist-item li i").removeClass("fa-li fa  fa-volume-up ");
     $("#playlist-item li i").addClass("fa-li fa fa-angle-right");
@@ -443,3 +443,18 @@ $(document).ready(function(){
 		volume: 1
 	});
 });
+
+// get buffered amount
+function updatebuffer() {
+    var audio4buffer = document.getElementById('jp_audio_0');
+    var tracktime = audio4buffer.currentTime;
+    var trackduration = audio4buffer.duration;
+    var trackplaypercentage = (tracktime / trackduration).toFixed(3)*100 + "%";
+        try{
+        var trackbuffered = audio4buffer.buffered.end(audio4buffer.buffered.length-1);
+        var trackbufferedpercentage = (trackbuffered / trackduration).toFixed(3)*100 + "%" ;
+        $(".jp-buffer-bar").css( "width", trackbufferedpercentage );
+         }catch(e){}
+    
+    setTimeout(updatebuffer, 150);
+}
