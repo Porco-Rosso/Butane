@@ -170,6 +170,7 @@ var hash = window.location.hash;
                         
                         $("#jp_audio_0")[0].play();
                         updatebuffer();
+                        songendlistener();
 
 
                         var a = document.createElement("a");
@@ -332,13 +333,15 @@ function playPrevious() {
 }
 
 // event listeners
-
+function songendlistener() {
 $("#jp_audio_0")[0].addEventListener('ended', playNext);
 _playlist.addEventListener("click", function (e) {
     if (e.target && e.target.nodeName === "LI") {
         playlistItemClick(e.target);
     }
 });
+}
+songendlistener();
 
 //help button + modal
 
