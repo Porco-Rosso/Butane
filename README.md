@@ -16,12 +16,14 @@
 [<h4>Check it out yourself!</h4>](https://rawgit.com/Porco-Rosso/vkdl/master/index.html)
 
 Disclaimer:
-**Only Chrome web-browser is officially supported**
+**Only tested on Chrome**
 
 (If anyone wants to help me with cross-browser-compatibility I would greatly appreciate it!)
 ___
 
-![Demo Screenshot](http://i.imgur.com/QJl16io.png)
+![Demo Screenshot](http://i.imgur.com/Fd4rOpp.png)
+<br>
+![Demo Gif](http://i.imgur.com/aiPjsPn.gif)
 
 **Notes:**
 - Based on Alashow's awesome original design: [https://github.com/alashow/music](https://github.com/alashow/music)
@@ -47,6 +49,7 @@ ___
  - bootbox.js
  - iScroll.js
  - jquery drawer
+ - jplayer
  
 ---
 ![GNU GPL v2 License](https://img.shields.io/badge/license-GNU%20GPL%20v2-brightgreen.svg?style=flat-square)
