@@ -84,9 +84,16 @@ bottom: 3px;
 .container-fluid>.navbar-collapse {
     width: 100%;
 }
+
 audio {
     width: 100%
 }
+
+.player-container{
+    margin-left: 12px;
+    margin-right: 25px;    
+}
+
 .wrapper {
     min-height: 97%;
     background-color: #34495e;
@@ -241,6 +248,7 @@ a {
     border-radius: 5px;
     line-height: 1.5;
     transition: all 0.2s ease;
+    font-weight: 400;
 }
 .badge:hover {
     background-color: #DC3D24;

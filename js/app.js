@@ -166,11 +166,11 @@ var hash = window.location.hash;
                     if (index == 0) {
 
                         //Change source of audio, show then play
-                        $('.navbar-audio').attr('src', $(this).parent().find('a').attr('href'));
-                        $('.navbar-audio').attr('style', '');
-                        var audio = document.getElementById("navbar-audio");
-
-                        audio.play();
+                        $("#jp_audio_0").attr('src', $(this).parent().find('a').attr('href'));
+                        
+                        $("#jp_audio_0")[0].play();
+                        updatebuffer();
+                        songendlistener();
 
 
                         var a = document.createElement("a");
@@ -189,8 +189,7 @@ var hash = window.location.hash;
                         ulist.appendChild(newItem);
 
                         index++;
-                        var _player = document.getElementById("navbar-audio"),
-                            _playlist = document.getElementById("playlist-item");
+                        var _playlist = document.getElementById("playlist-item");
 
                         changeicons();
                         document.title = $(this).parent().text().slice(7);
@@ -218,8 +217,7 @@ var hash = window.location.hash;
                         
                         ulist.appendChild(newItem);
 
-                        var _player = document.getElementById("navbar-audio"),
-                            _playlist = document.getElementById("playlist-item");
+                        var _playlist = document.getElementById("playlist-item");
 
                         changeicons();
                         document.title = $(this).parent().text().slice(7);
@@ -297,8 +295,7 @@ var hash = window.location.hash;
 
 
 // globals for playlists
-var _player = document.getElementById("navbar-audio"),
-    _playlist = document.getElementById("playlist-item");
+var    _playlist = document.getElementById("playlist-item");
 
 
 // functions for playlists
@@ -309,8 +306,9 @@ function playlistItemClick(clickedElement) {
     }
     clickedElement.classList.add("selected");
     var clickedelementlink = clickedElement.getElementsByTagName('a')[0];
-    _player.src = clickedelementlink.getAttribute("href");
-    _player.play();
+    $("#jp_audio_0").attr('src', clickedelementlink.getAttribute("href"));
+    $("#jp_audio_0")[0].play();
+    updatebuffer();
     document.title = $('.selected').text();
     $("#playlist-item li i").removeClass("fa-li fa  fa-volume-up ");
     $("#playlist-item li i").addClass("fa-li fa fa-angle-right");
@@ -335,13 +333,15 @@ function playPrevious() {
 }
 
 // event listeners
-
-_player.addEventListener('ended', playNext);
+function songendlistener() {
+$("#jp_audio_0")[0].addEventListener('ended', playNext);
 _playlist.addEventListener("click", function (e) {
     if (e.target && e.target.nodeName === "LI") {
         playlistItemClick(e.target);
     }
 });
+}
+songendlistener();
 
 //help button + modal
 
@@ -397,7 +397,7 @@ $(document).on("click", '#playlist-item span.fa-li.fa.fa-times', function (e) {
 // hotkeys script
 
 function playorpause() {
-    var audio = document.getElementById("navbar-audio");
+    var audio = $("#jp_audio_0");
             if (audio.paused) {
                 audio.play();
             } else {
@@ -426,3 +426,38 @@ function playorpause() {
         
             }   
     };
+
+//Initialize jplayer
+$(document).ready(function(){
+
+	$("#jquery_jplayer_1").jPlayer({
+		ready: function (event) {
+			$(this).jPlayer("setMedia", {
+				mp3: "#"
+			});
+		},
+		swfPath: "js/jplayer-custom/js",
+		supplied: "mp3",
+		wmode: "window",
+		smoothPlayBar: true,
+		keyEnabled: true,
+		remainingDuration: true,
+		toggleDuration: true,
+		volume: 1
+	});
+});
+
+// get buffered amount
+function updatebuffer() {
+    var audio4buffer = document.getElementById('jp_audio_0');
+    var tracktime = audio4buffer.currentTime;
+    var trackduration = audio4buffer.duration;
+    var trackplaypercentage = (tracktime / trackduration).toFixed(3)*100 + "%";
+        try{
+        var trackbuffered = audio4buffer.buffered.end(audio4buffer.buffered.length-1);
+        var trackbufferedpercentage = (trackbuffered / trackduration).toFixed(3)*100 + "%" ;
+        $(".jp-buffer-bar").css( "width", trackbufferedpercentage );
+         }catch(e){}
+    
+    setTimeout(updatebuffer, 150);
+}
