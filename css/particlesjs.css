@@ -36,11 +36,20 @@ canvas{
 
 #particles-js{
   width: 100%;
-  height: 100%;
+  height: 93%;
   background-color: #34495e;
 /*  background: linear-gradient(0deg, #34495e 20%, #596C7D 99%);*/
   background-image: url('');
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
+    
+/* added */
+    position: absolute;
+    top: 0px;
+    z-index: 1;
+}
+
+.col-xs-12{
+z-index: 10;
 }
