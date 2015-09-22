@@ -50,6 +50,7 @@ ___
  - iScroll.js
  - jquery drawer
  - jplayer
+ - particles.js
  
 ---
 ![GNU GPL v2 License](https://img.shields.io/badge/license-GNU%20GPL%20v2-brightgreen.svg?style=flat-square)
