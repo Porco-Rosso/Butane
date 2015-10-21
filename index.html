@@ -40,6 +40,11 @@
                 <a class="navbar-brand" id="navbar-brand" onclick="window.scrollTo(0, 0);">
                     <span><img class="logo-image" src="images/Logo.png"></span><span class="logo-text">Music Player</span>
                 </a>
+                    <label class="switch">
+                        <i class="icon-ok"></i>
+                        <i class="icon-remove"></i>
+                        <input type="checkbox" checked>
+                    </label>
                 <span id="info-button" class="nomobile"><span class="glyphicon glyphicon-info-sign" ></span><span id="info-button-text">Instructions</span></span>
             </div>
             
@@ -114,7 +119,7 @@ END The PLaylist loader
 <!--Start of Jplayer -->
                         <div class="player-container">
                         	<div id="jquery_jplayer_1" class="jp-jplayer">
-                        <audio id="jp_audio_0" class="navbar-audio" preload="metadata" src="http://jplayer.org/audio/mp3/TSP-09-The_werewolf_song.mp3"></audio>
+                        <audio id="jp_audio_0" class="navbar-audio" preload="metadata" src=""></audio>
                             </div>
 	<div id="jp_container_1" class="jp-audio">
 		<div class="jp-controls">
@@ -172,12 +177,11 @@ END The PLaylist loader
 <!--Footer    -->
     <div id="footer">
         <div class="container">
-            <p class="muted credit text-center">Developed by <a href="https://github.com/Porco-Rosso" class="hint--top hint--rounded" data-hint="Github">Porco-Rosso</a> @ <a href="http://stereostance.com" target="_blank">Stereostance.com</a><span class="nomobile"> - Version <a href="https://github.com/Porco-Rosso/vkdl">2.1.0</a> - based on code from <a href="https://github.com/alashow/music" target="_blank">Alashow</a></span>
+            <p class="muted credit text-center">Developed by <a href="https://github.com/Porco-Rosso" class="hint--top hint--rounded" data-hint="Github">Porco-Rosso</a> @ <a href="http://stereostance.com" target="_blank">Stereostance.com</a><span class="nomobile"> - Version <a href="https://github.com/Porco-Rosso/vkdl">2.2.0 <i class="fa fa-github"></i></a> - based on code from <a href="https://github.com/alashow/music" target="_blank">Alashow</a></span>
             </p>
         </div>
     </div>
-        <div id="particles-js">
-        </div>
+<!--        <div id="particles-js"></div>-->
 
 <!--End of Footer-->
     
@@ -195,10 +199,14 @@ END The PLaylist loader
     <script type="text/javascript" src="js/jplayer-custom/js/jquery.jplayer.min.js"></script>
     
     <!-- particles.js -->
-    <script src="js/particles.js"></script>
+<!--    <script src="js/particles.js"></script>-->
     
     <!-- Playlist manager JS-->
     <script src="js/playlist-saver.js"></script>
+    
+    <!--  Switch Javascript-->
+    <script src="js/switch.js"></script>
+    
     <!-- Main JS file   -->
     <script src="js/app.js" type="text/javascript" charset="utf-8"></script>
 

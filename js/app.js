@@ -1,3 +1,8 @@
+/*global $ */
+/*global document */
+/*global window */
+
+
 $(document).ready(function ($) {
 
     //    //load audio.js
@@ -11,7 +16,7 @@ $(document).ready(function ($) {
     $('#query').bind('keypress', function (event) {
         if (event.keyCode == 13) {
             $('.search').trigger('click');
-        };
+        }
     });
     
     $(document).ready(function() {
@@ -96,7 +101,7 @@ var hash = window.location.hash;
 
             $('#playaddicon').addClass('glyphicon-plus').removeClass('glyphicon-play');
             $('#playaddicon').removeAttr('id');
-        };
+        }
     }
 
 
@@ -121,7 +126,7 @@ var hash = window.location.hash;
         if (captcha_sid != null && captcha_key != null) {
             data.captcha_sid = captcha_sid;
             data.captcha_key = captcha_key;
-        };
+        }
         $.ajax({
             url: vkConfig.url,
             data: data,
@@ -143,14 +148,14 @@ var hash = window.location.hash;
                     }
                     if (msg.error.error_code == 14) {
                         showCaptcha(msg.error.captcha_sid, msg.error.captcha_img);
-                    };
+                    }
                     return;
-                };
+                }
 
                 if (msg.response == 0) {
                     prependError("Sorry, our trained team of monkeys couldn't find anything for this search query.");
                     return;
-                };
+                }
 
 
                 // build search result list  
@@ -158,7 +163,7 @@ var hash = window.location.hash;
                 for (var i = 1; i < msg.response.length; i++) {
                     $('#result > .list-group').append('<li class="list-group-item"> <span class="badge download hint--top hint--rounded nomobile" data-hint="Save as ..."><a class="glyphicon glyphicon-cloud-download" href="' + msg.response[i].url + '" download="' + msg.response[i].artist + ' - ' + msg.response[i].title + '.mp3"></a></span> <span class="badge hint--top hint--rounded nomobile" data-hint="Song length">' + msg.response[i].duration.toTime() + '</span><span class="badge play hint--top hint--rounded" data-hint="Add to player"><span class="glyphicon glyphicon-play" id="playaddicon"></span></span><a  target="_blank" href="' + msg.response[i].url + '"  download="' + msg.response[i].artist + ' - ' + msg.response[i].title + '.mp3">' + msg.response[i].artist + ' - ' + msg.response[i].title + '</a></li>');
 
-                };
+                }
 
 
                 $('.play').on('click', function (event) {
@@ -235,7 +240,7 @@ var hash = window.location.hash;
 
             }
         });
-    };
+    }
 
 
 
@@ -260,7 +265,7 @@ var hash = window.location.hash;
         }
         var time = hours + minutes + ':' + seconds;
         return time;
-    }
+    };
     
         // captcha script //
     function showCaptcha(captchaSid, captchaImage) {
@@ -285,7 +290,7 @@ var hash = window.location.hash;
         $('#captchaKey').bind('keypress', function (event) {
             if (event.keyCode == 13) {
                 $('#captchaSend').trigger('click');
-            };
+            }
         });
     }
     
