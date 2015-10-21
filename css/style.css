@@ -69,7 +69,7 @@ body {
 
 .glyphicon-info-sign:before {
     padding-right: 5px;
-    color: #95a5a6;
+    color: #636363;
     font-size: 20px;
 }
 
@@ -228,6 +228,11 @@ color: #DC3D24;
     margin: 10px 0;
     color: #9b59b6;
 }
+
+#footer .fa-github{
+    color: #7f8c8d;
+}
+
 a {
     text-decoration: none !important;
     color: #7f8c8d;
