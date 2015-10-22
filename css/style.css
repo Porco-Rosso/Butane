@@ -456,6 +456,10 @@ margin-top: 10px;
         .play {
         padding: 3px 7px;
         }
+    
+        .switch {
+        display:none;
+    }
 }
 
 /*For the switch/toggle*/
