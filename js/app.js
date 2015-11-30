@@ -153,7 +153,7 @@ var hash = window.location.hash;
                 }
 
                 if (msg.response == 0) {
-                    prependError("<i class="fa fa-exclamation-triangle"></i> Sorry, our team of trained monkeys couldn't find anything for your search query.");
+                    prependError('<i class="fa fa-exclamation-triangle"></i>' + " Sorry, our team of trained monkeys couldn't find anything for this search query.");
                     return;
                 }
 
