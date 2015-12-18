@@ -465,4 +465,7 @@ function updatebuffer() {
          }catch(e){}
     
     setTimeout(updatebuffer, 150);
+	
+	//makes sure next song plays at the end of the track
+	songendlistener();
 }
