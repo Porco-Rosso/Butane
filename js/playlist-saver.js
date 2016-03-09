@@ -74,13 +74,7 @@ function loadFileAsText() {
 
         //Main function for search, edited to fit the playlist builder
         function searchforplaylist(playlistarray, captcha_sid, captcha_key) {
-            var vkConfig = {
-                url: "https://api.vk.com/method/audio.search",
-                sort: 2,
-                autoComplete: 0,
-                accessToken: "43105d78b7e5c79fd46e2623f541f39b7aa30889d55f47736e4cb94b4a0205c80f259ed2eb0e104cbf856",
-                count: 5
-            };
+
             //  Uncomment the line below if you would like the URL hash to change once the tracks are loaded 
             //    window.location.hash = correctplaylistarray[0][0].slice(0,-1);
             var data = {
