@@ -2,7 +2,7 @@
 
 		var hash = window.location.hash;
 
-		var playlistURL = "https://jsonp.afeld.me/?url=" + hash.substring(1, hash.length);
+		var playlistURL = "https://crossorigin.me/" + hash.substring(1, hash.length);
 		$.get(playlistURL, function (playlistURLdata) {
 			console.log(playlistURLdata);
 
