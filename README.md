@@ -9,7 +9,8 @@
 - Clean interface
 - On the fly playlist creation
 - Playlist export/import as simple human-readable `.txt` files
-- Linkable URL Hashtag searches (example: [www.vkdl.com/#French Kiwi Juice](http://htmlpreview.github.io/?https://github.com/drpoup/vkdl/blob/master/index.html#French+Kiwi+Juice))
+- Linkable URL Hashtag searches ([www.vkdl.com/#French Kiwi Juice](http://htmlpreview.github.io/?https://github.com/drpoup/vkdl/blob/master/index.html#French+Kiwi+Juice))
+- Linkable URL Hashtag playlists ([www.vkdl.com/#https://my.mixtape.moe/jtjxub.txt](https://rawgit.com/Porco-Rosso/vkdl/master/index.html#https://my.mixtape.moe/jtjxub.txt))
 - Hotkey functionality (ie: → for next song, `spacebar` for play/pause)
 - Companion soundcloud & youtube [userscript!](https://github.com/Porco-Rosso/vkdl-userscript)
 
