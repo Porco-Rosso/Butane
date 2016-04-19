@@ -176,12 +176,14 @@ $(document).ready(function ($) {
 					return;
 				}
 
-
+				
 				// build search result list  
 				$('#result > .list-group').html("");
 				for (var i = 1; i < msg.response.length; i++) {
 					$('#result > .list-group').append('<li class="list-group-item"> <span class="badge download hint--top hint--rounded nomobile" data-hint="Save as ..."><a class="glyphicon glyphicon-cloud-download" href="' + msg.response[i].url + '" download="' + msg.response[i].artist + ' - ' + msg.response[i].title + '.mp3"></a></span> <span class="badge hint--top hint--rounded nomobile" data-hint="Song length">' + msg.response[i].duration.toTime() + '</span><span class="badge play hint--top hint--rounded" data-hint="Add to player"><span class="glyphicon glyphicon-play" id="playaddicon"></span></span><a  target="_blank" href="' + msg.response[i].url + '"  download="' + msg.response[i].artist + ' - ' + msg.response[i].title + '.mp3">' + msg.response[i].artist + ' - ' + msg.response[i].title + '</a></li>');
-
+					
+					$('#result').animateCss('fadeInUp');
+					
 				}
 
 
