@@ -6,6 +6,16 @@
 $(document).ready(function ($) {
 
 	var index = 0;
+	
+	//	AnimateCss
+	$.fn.extend({
+    animateCss: function (animationName) {
+        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        $(this).addClass('animated ' + animationName).one(animationEnd, function() {
+            $(this).removeClass('animated ' + animationName);
+        });
+    }
+	});
 
 	//Trigger search button when pressing enter button
 	$('#query').bind('keypress', function (event) {
@@ -75,7 +85,11 @@ $(document).ready(function ($) {
 
 	$('.search').on('click touchstart', function (event) {
 		query = $('#query').val();
-		if (query == "") return; // return if query empty
+		$('.input-group').animateCss('pulse');
+		if (query == ""){
+			$('.input-group').animateCss('shake');
+			return; // return if query empty
+						};
 		search(query, null, null);
 	});
 
