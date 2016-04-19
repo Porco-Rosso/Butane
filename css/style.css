@@ -283,6 +283,11 @@ a {
 }
 .input-group {
     margin-top: 25px;
+/*animate.css*/
+  -webkit-animation-duration: 0.3s;
+  -mos-animation-duration: 0.3s;
+  -o-animation-duration: 0.3s;
+}
 }
 .spin {
     -webkit-animation: spin .2s infinite linear;
@@ -318,6 +323,13 @@ a {
         transform: rotate(360deg);
     }
 }
+
+#result{
+  -webkit-animation-duration: 0.3s;
+  -mos-animation-duration: 0.3s;
+  -o-animation-duration: 0.3s;
+}
+
 li.list-group-item a {
     color: #555555;
 }
