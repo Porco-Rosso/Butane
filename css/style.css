@@ -325,9 +325,9 @@ a {
 }
 
 #result{
-  -webkit-animation-duration: 0.6s;
-  -mos-animation-duration: 0.6s;
-  -o-animation-duration: 0.6s;
+  -webkit-animation-duration: 0.3s;
+  -mos-animation-duration: 0.3s;
+  -o-animation-duration: 0.3s;
 }
 
 li.list-group-item a {

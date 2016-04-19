@@ -88,6 +88,13 @@ $(document).ready(function ($) {
 		$('.input-group').animateCss('pulse');
 		if (query == ""){
 			$('.input-group').animateCss('shake');
+			$('#result').animateCss('fadeOut');
+			setTimeout(function(){
+    		$('#result > .list-group').html("");
+			window.location.hash = "";
+		
+			}, 280);
+			
 			return; // return if query empty
 						};
 		search(query, null, null);
@@ -182,7 +189,7 @@ $(document).ready(function ($) {
 				for (var i = 1; i < msg.response.length; i++) {
 					$('#result > .list-group').append('<li class="list-group-item"> <span class="badge download hint--top hint--rounded nomobile" data-hint="Save as ..."><a class="glyphicon glyphicon-cloud-download" href="' + msg.response[i].url + '" download="' + msg.response[i].artist + ' - ' + msg.response[i].title + '.mp3"></a></span> <span class="badge hint--top hint--rounded nomobile" data-hint="Song length">' + msg.response[i].duration.toTime() + '</span><span class="badge play hint--top hint--rounded" data-hint="Add to player"><span class="glyphicon glyphicon-play" id="playaddicon"></span></span><a  target="_blank" href="' + msg.response[i].url + '"  download="' + msg.response[i].artist + ' - ' + msg.response[i].title + '.mp3">' + msg.response[i].artist + ' - ' + msg.response[i].title + '</a></li>');
 					
-					$('#result').animateCss('fadeInUp');
+					$('#result > .list-group').animateCss('fadeInUp');
 					
 				}
 
