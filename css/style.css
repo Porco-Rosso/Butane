@@ -10,7 +10,7 @@ body {
     font-weight: 400;
     height: 100%;
     padding-top: 65px;
-    background-color: #333333
+    background-color: #34495E;
 }
 
 .logo-image {
@@ -85,30 +85,40 @@ bottom: 3px;
     width: 100%;
 }
 
+#playlist {
+	margin-top: 20px
+}
+
 audio {
     width: 100%
 }
 
 .player-container{
+	margin-top: 20px;
     margin-left: 12px;
     margin-right: 25px;    
 }
 
 .wrapper {
-    min-height: 97%;
+	top: 10px;
+    bottom: 10px;
     background-color: #34495e;
 }
 .wrapper:after {
     content: "";
     display: block;
 }
-#playlist {
-    padding-top: 20px;
-}
 
 .fa-ul{
     width: 95%;
     margin-bottom: 22px;
+}
+
+#playlist-item {
+	/*	animate.css*/
+  -webkit-animation-duration: 0.5s;
+  -mos-animation-duration: 0.5s;
+  -o-animation-duration: 0.5s;
 }
 
 #playlist-list-item {
@@ -148,6 +158,11 @@ audio {
     margin-top: 2px;
     padding-bottom: 3px;
     padding-top: 3px;
+	
+		/*	animate.css*/
+  -webkit-animation-duration: 0.2s;
+  -mos-animation-duration: 0.2s;
+  -o-animation-duration: 0.2s;
 }
 
 #playlist-list-item li:hover span.fa-li.fa.fa-sort {
@@ -215,7 +230,12 @@ color: #DC3D24;
     color: #7f8c8d;
     font-size: 0.9em;
     background-color: #333333;
-    margin-top: -20px;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	z-index: 10;
+	height: 45px;
+	
 }
 #footer .container {
     width: auto;
@@ -325,6 +345,7 @@ a {
 }
 
 #result{
+/*	animate.css*/
   -webkit-animation-duration: 0.3s;
   -mos-animation-duration: 0.3s;
   -o-animation-duration: 0.3s;

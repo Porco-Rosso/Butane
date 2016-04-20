@@ -397,13 +397,22 @@ $(document).on("click", '#info-button', function (e) {
 
 // clear palylist script
 $(document).on("click", '#clear-button', function (e) {
-	$('#playlist-item').empty();
+	$('#playlist-item').animateCss('fadeOut');	
+	
+	setTimeout(function(){
+    $('#playlist-item').empty();
+						 }, 500);
+	
 	index = 0;
 });
 
 // clear palylist item script
 $(document).on("click", '#playlist-item span.fa-li.fa.fa-times', function (e) {
-	$(this).parent().remove();
+	var that = this;
+	$(this).parent().animateCss('fadeOut');		
+	setTimeout(function(){
+    $(that).parent().remove();
+						 }, 200);
 	index--;
 });
 
