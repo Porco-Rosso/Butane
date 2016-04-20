@@ -112,6 +112,7 @@ audio {
 }
 
 #playlist-item {
+	/*	animate.css*/
   -webkit-animation-duration: 0.5s;
   -mos-animation-duration: 0.5s;
   -o-animation-duration: 0.5s;
@@ -154,6 +155,11 @@ audio {
     margin-top: 2px;
     padding-bottom: 3px;
     padding-top: 3px;
+	
+		/*	animate.css*/
+  -webkit-animation-duration: 0.2s;
+  -mos-animation-duration: 0.2s;
+  -o-animation-duration: 0.2s;
 }
 
 #playlist-list-item li:hover span.fa-li.fa.fa-sort {

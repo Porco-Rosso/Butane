@@ -408,7 +408,11 @@ $(document).on("click", '#clear-button', function (e) {
 
 // clear palylist item script
 $(document).on("click", '#playlist-item span.fa-li.fa.fa-times', function (e) {
-	$(this).parent().remove();
+	var that = this;
+	$(this).parent().animateCss('fadeOut');		
+	setTimeout(function(){
+    $(that).parent().remove();
+						 }, 200);
 	index--;
 });
 
