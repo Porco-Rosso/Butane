@@ -397,7 +397,12 @@ $(document).on("click", '#info-button', function (e) {
 
 // clear palylist script
 $(document).on("click", '#clear-button', function (e) {
-	$('#playlist-item').empty();
+	$('#playlist-item').animateCss('fadeOut');	
+	
+	setTimeout(function(){
+    $('#playlist-item').empty();
+						 }, 500);
+	
 	index = 0;
 });
 

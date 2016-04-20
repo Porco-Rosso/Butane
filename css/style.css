@@ -111,6 +111,12 @@ audio {
     margin-bottom: 22px;
 }
 
+#playlist-item {
+  -webkit-animation-duration: 0.5s;
+  -mos-animation-duration: 0.5s;
+  -o-animation-duration: 0.5s;
+}
+
 #playlist-list-item {
     color: #95a5a6;
     padding: 0px 15px;
@@ -325,6 +331,7 @@ a {
 }
 
 #result{
+/*	animate.css*/
   -webkit-animation-duration: 0.3s;
   -mos-animation-duration: 0.3s;
   -o-animation-duration: 0.3s;
