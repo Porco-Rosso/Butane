@@ -9,8 +9,8 @@ $(document).ready(function ($) {
 	$('.wrapper').hide();
 	setTimeout(function(){
 	$('.wrapper').show();
-    $('.wrapper').addClass('animated fadeInUp');
-}, 400);
+    $('.wrapper').addClass('animated fadeIn');
+}, 600);
 	
 	
 });
