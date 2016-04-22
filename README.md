@@ -52,6 +52,7 @@ ___
  - jquery drawer
  - jplayer
  - particles.js
+ - Animate.css
  
 ---
 ![GNU GPL v2 License](https://img.shields.io/badge/license-GNU%20GPL%20v2-brightgreen.svg?style=flat-square)
