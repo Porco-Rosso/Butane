@@ -3,6 +3,9 @@
 
 $(document).ready(function ($) {
 	
+	 $(function () {
+     $('.hidden-on-load').removeClass('hidden-on-load');
+ 					});
 	$('.navbar').addClass('animated bounceInDown');	
 	$('#footer').addClass('animated bounceInUp');
 	

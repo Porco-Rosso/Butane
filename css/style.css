@@ -13,6 +13,10 @@ body {
     background-color: #34495E;
 }
 
+/*To make page load look more professional*/
+ .hidden-on-load { display: none;
+}
+
 .logo-image {
     height: 30px;
     padding-right: 15px;
@@ -22,6 +26,7 @@ body {
     margin-top: -10px;
     transition: all 0.2s ease;
 }
+
 
 #navbar-brand > span.logo-text:hover {
     color: white;
