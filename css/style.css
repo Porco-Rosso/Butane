@@ -10,7 +10,7 @@ body {
     font-weight: 400;
     height: 100%;
     padding-top: 65px;
-    background-color: #34495E;
+    background-color: #333333;
 }
 
 /*To make page load look more professional*/
@@ -105,10 +105,15 @@ audio {
 }
 
 .wrapper {
-	top: 10px;
-    bottom: 10px;
+	position: relative;
+	min-height: 100%;
+	width: 100%;
+	top: 0px;
+	margin-top: 0px;
+    bottom: 45px;
     background-color: #34495e;
 }
+
 .wrapper:after {
     content: "";
     display: block;
