@@ -138,6 +138,8 @@ $(document).ready(function ($) {
 		$('#result > .list-group').prepend('<li class="list-group-item list-group-item-danger">' + error + '</li>');
 		$('#loading').hide();
 	}
+		// To make function Global 
+		window.prependError =  prependError;
 
 	//Main function for search
 	function search(_query, captcha_sid, captcha_key) {
