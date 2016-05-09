@@ -437,16 +437,27 @@ $(document).ready(function () {
 	});
 });
 
+function freezeequalizer() {
+if($('#jp_container_1 > div.jp-controls > a.jp-play').css('display') == 'inline')
+{
+	$("#equalizer-icon").attr("src", "images/google-equalizer-white.gif");
+}
+else
+{
+    $("#equalizer-icon").attr("src", "images/google-equalizer-white-paused.gif");
+}
+}
 
 // hotkeys script
 
 function playorpause() {
 	var audio = $("#jp_audio_0");
+	freezeequalizer();
 	if (audio.paused) {
 		audio.play();
 	} else {
 		audio.pause();
-	}
+			}
 	return false;
 }
 
