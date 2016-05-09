@@ -216,7 +216,8 @@ $(document).ready(function ($) {
 						a.textContent = $(this).parent().text().slice(7);
 						a.setAttribute('href', $(this).parent().find('a').attr('href'));
 						a.setAttribute('download', a.textContent);
-						newItem.innerHTML = newItem.innerHTML + '<i class="fa-li fa fa-volume-up"></i>';
+						newItem.innerHTML = newItem.innerHTML + '<i></i>';
+						newItem.innerHTML = newItem.innerHTML + '<img id="equalizer-icon" src="images/google-equalizer-white.gif">';
 						newItem.appendChild(a);
 						newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-times"></span>'; // delete icon
 						newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-cloud-download nomobile"><a class="fakelink hint--top hint--rounded " data-hint="Save as ..." target="_blank" href="' + $(this).parent().find('a').attr('href') + '" download="' + a.textContent + '.mp3"></a></span>'; // download link
@@ -345,10 +346,12 @@ function playlistItemClick(clickedElement) {
 	$("#jp_audio_0")[0].play();
 	updatebuffer();
 	document.title = $('.selected').text();
-	$("#playlist-item li i").removeClass("fa-li fa  fa-volume-up ");
+	$("#equalizer-icon").remove();
 	$("#playlist-item li i").addClass("fa-li fa fa-angle-right");
 	$("#playlist-item li.selected i").removeClass("fa-li fa fa-angle-right");
-	$("#playlist-item li.selected i").addClass("fa-li fa  fa-volume-up ");
+	$("#playlist-item li.selected").prepend('<img id="equalizer-icon" src="images/google-equalizer-white.gif">');
+	
+	
 
 	window.location.hash = $('.selected').text().split(' ').join('+');
 }
@@ -434,16 +437,27 @@ $(document).ready(function () {
 	});
 });
 
+function freezeequalizer() {
+if($('#jp_container_1 > div.jp-controls > a.jp-play').css('display') == 'inline')
+{
+	$("#equalizer-icon").attr("src", "images/google-equalizer-white.gif");
+}
+else
+{
+    $("#equalizer-icon").attr("src", "images/google-equalizer-white-paused.gif");
+}
+}
 
 // hotkeys script
 
 function playorpause() {
 	var audio = $("#jp_audio_0");
+	freezeequalizer();
 	if (audio.paused) {
 		audio.play();
 	} else {
 		audio.pause();
-	}
+			}
 	return false;
 }
 
