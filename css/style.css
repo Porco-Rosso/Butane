@@ -124,6 +124,14 @@ audio {
     margin-bottom: 22px;
 }
 
+#equalizer-icon{
+    height: 23px;
+    padding-left: 5px;
+    padding-right: 8px;
+    margin-top: -5px;
+    margin-left: -32px;
+}
+
 #playlist-item {
 	/*	animate.css*/
   -webkit-animation-duration: 0.5s;
