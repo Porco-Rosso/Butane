@@ -431,7 +431,7 @@ $(document).ready(function () {
 		if (ScrollTop > 600) {
 			$('span.logo-text').text('Scroll back to top ↑');
 		} else {
-			$('span.logo-text').text('Music Player');
+			$('span.logo-text').text('Butane');
 		}
 
 	});

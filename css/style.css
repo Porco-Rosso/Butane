@@ -18,13 +18,21 @@ body {
 }
 
 .logo-image {
-    height: 30px;
+    height: 35px;
     padding-right: 15px;
+	margin-bottom: 5px;
 }
 
 .logo-text {
     margin-top: -10px;
     transition: all 0.2s ease;
+}
+
+.navbar-default .navbar-brand .logo-subtext {
+	color: rgba(147, 163, 164, 0.3);
+    font-size: 14px;
+    font-style: italic;
+    padding-left: 8px;
 }
 
 
@@ -41,12 +49,8 @@ body {
     font-family: 'Raleway';
 }
 
-.navbar-brand{
-    padding-top: 20px;
-}
-
 .navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand{
-    margin-left: 0px;
+    margin-left: 4px;
 }
 
 
