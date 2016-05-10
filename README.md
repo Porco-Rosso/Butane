@@ -1,4 +1,4 @@
-<img src=https://raw.githubusercontent.com/Porco-Rosso/vkdl/master/images/Logo.png width=90 />   Butane
+<img src=https://raw.githubusercontent.com/Porco-Rosso/vkdl/master/images/Logo.png width=90/><br>Butane
 =====
 
 *A web app to search and download free music from Vk.com*
