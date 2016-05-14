@@ -1,4 +1,4 @@
-<img src=https://raw.githubusercontent.com/Porco-Rosso/vkdl/master/images/Logo.png width=200 height=60 />
+<img src=https://raw.githubusercontent.com/Porco-Rosso/Butane/master/images/Logo.png width=90/><br>Butane
 =====
 
 *A web app to search and download free music from Vk.com*
@@ -9,12 +9,12 @@
 - Clean interface
 - On the fly playlist creation
 - Playlist export/import as simple human-readable `.txt` files
-- Linkable URL Hashtag searches ([www.vkdl.com/#French Kiwi Juice](http://htmlpreview.github.io/?https://github.com/drpoup/vkdl/blob/master/index.html#French+Kiwi+Juice))
-- Linkable URL Hashtag playlists ([www.vkdl.com/#https://my.mixtape.moe/jtjxub.txt](https://rawgit.com/Porco-Rosso/vkdl/master/index.html#https://my.mixtape.moe/jtjxub.txt))
+- Linkable URL Hashtag searches ([butane.stereostance.com/#French Kiwi Juice](https://rawgit.com/Porco-Rosso/Butane/master/index.html#French+Kiwi+Juice))
+- Linkable URL Hashtag playlists ([butane.stereostance.com/#https://my.mixtape.moe/jtjxub.txt](https://rawgit.com/Porco-Rosso/Butane/master/index.html#https://my.mixtape.moe/jtjxub.txt))
 - Hotkey functionality (ie: → for next song, `spacebar` for play/pause)
-- Companion soundcloud & youtube [userscript!](https://github.com/Porco-Rosso/vkdl-userscript)
+- Companion Soundcloud & Youtube [userscript!](https://github.com/Porco-Rosso/Butane-userscript)
 
-[<h4>Check it out yourself!</h4>](https://rawgit.com/Porco-Rosso/vkdl/master/index.html)
+[<h4>Check it out yourself!</h4>](https://rawgit.com/Porco-Rosso/Butane/master/index.html)
 
 Disclaimer:
 **Only tested on Chrome**
