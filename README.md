@@ -22,7 +22,7 @@ Disclaimer:
 (If anyone wants to help me with cross-browser-compatibility I would greatly appreciate it!)
 ___
 
-![Demo Screenshot](https://cloud.githubusercontent.com/assets/7024527/15350038/3cea14ac-1cd7-11e6-80b0-66c2bd91b187.png)
+![Demo Screenshot](https://cloud.githubusercontent.com/assets/7024527/15350038/3cea14ac-1cd7-11e6-80b0-66c2bd91b187.png | width=790)
 <br>
 ![Demo Gif](http://i.imgur.com/aiPjsPn.gif)
 
