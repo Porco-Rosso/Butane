@@ -77,13 +77,13 @@
 					if (i == playlistarray.length - 1) {
 						window.searchforplaylist(window.correctplaylistarray[0][i], null, null);
 						i++;
-						setTimeout(forloop, 300);
+						setTimeout(forloop, 1000);
 
 					} else {
 						// actions for every playlist item
 						window.searchforplaylist(window.correctplaylistarray[0][i], null, null);
 						i++;
-						setTimeout(forloop, 300);
+						setTimeout(forloop, 1000);
 					}
 				}
 			}

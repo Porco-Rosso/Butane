@@ -138,7 +138,7 @@ function loadFileAsText() {
 				if (i == playlistarray.length - 1) {
 					window.searchforplaylist(window.correctplaylistarray[0][i], null, null);
 					i++;
-					setTimeout(forloop, 300);
+					setTimeout(forloop, 1000);
 					// uncomment below to make playlist start playing on load
 					//             $('#playlist-item > li:nth-child(1)').trigger('click'); 
 
@@ -149,7 +149,7 @@ function loadFileAsText() {
 					// actions for every playlist item
 					window.searchforplaylist(window.correctplaylistarray[0][i], null, null);
 					i++;
-					setTimeout(forloop, 300);
+					setTimeout(forloop, 1000);
 				}
 			}
 		}
