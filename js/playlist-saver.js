@@ -152,6 +152,7 @@ function loadFileAsText() {
 					setTimeout(forloop, 1000);
 				}
 			}
+			window.songendlistener();
 		}
 		forloop();
 
