@@ -155,6 +155,10 @@ audio {
     font-family: 'Roboto', sans-serif; 
 }
 
+.song {
+	cursor: pointer;
+}
+
 #playlist-item > li > span.fa-li.fa.fa-cloud-download{
     pointer-events: auto;
     margin-right: -10px;

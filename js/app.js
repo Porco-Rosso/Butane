@@ -189,11 +189,24 @@ $(document).ready(function ($) {
 				// build search result list  
 				$('#result > .list-group').html("");
 				for (var i = 1; i < msg.response.length; i++) {
-					$('#result > .list-group').append('<li class="list-group-item"> <span class="badge download hint--top hint--rounded nomobile" data-hint="Save as ..."><a class="glyphicon glyphicon-cloud-download" href="' + msg.response[i].url + '" download="' + msg.response[i].artist + ' - ' + msg.response[i].title + '.mp3"></a></span> <span class="badge hint--top hint--rounded nomobile" data-hint="Song length">' + msg.response[i].duration.toTime() + '</span><span class="badge play hint--top hint--rounded" data-hint="Add to player"><span class="glyphicon glyphicon-play" id="playaddicon"></span></span><a  target="_blank" href="' + msg.response[i].url + '"  download="' + msg.response[i].artist + ' - ' + msg.response[i].title + '.mp3">' + msg.response[i].artist + ' - ' + msg.response[i].title + '</a></li>');
+					
+					var savebutton = '<span class="badge download hint--top hint--rounded nomobile" data-hint="Save as ..."><a class="glyphicon glyphicon-cloud-download" href="' + msg.response[i].url + '" download="' + msg.response[i].artist + ' - ' + msg.response[i].title + '.mp3"></a></span>';
+					
+					var songlength = '<span class="badge hint--top hint--rounded nomobile" data-hint="Song length">' + msg.response[i].duration.toTime() + '</span>';
+					
+					var playbutton = '<span class="badge play hint--top hint--rounded" data-hint="Add to player"><span class="glyphicon glyphicon-play" id="playaddicon"></span></span>';
+					
+					var popovercontent = "<div><!-- BEGIN ADREACTOR CODE --><div id='avp_zid_9'><script>_avp.push({ tagid: 'avp_zid_9', alias: '/', type: 'banner', zid: 9, pid: 53 });</script></div><!-- END ADREACTOR CODE --></div>";
+					
+					var link = '<a class="song" tabindex="0" data-toggle="popover" role="button" data-trigger="focus" data-placement="bottom" title="Song Info" data-html="true" data-content=" ' + popovercontent + ' ">' + msg.response[i].artist + ' - ' + msg.response[i].title + '</a>';
+					
+					$('#result > .list-group').append('<li class="list-group-item">'+savebutton+songlength+playbutton+link+'</li>');
 					
 					$('#result > .list-group').animateCss('fadeInUp');
 					
 				}
+				
+				
 
 
 				$('.play').on('click', function (event) {
@@ -265,8 +278,10 @@ $(document).ready(function ($) {
 
 				});
 
-
-
+	//	Enable popovers
+				$(function () {
+					$('[data-toggle="popover"]').popover()
+					})
 				$('#loading').hide();
 
 			}
