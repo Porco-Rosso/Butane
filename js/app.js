@@ -207,14 +207,6 @@ $(document).ready(function ($) {
 					var artist = escapeHtml(msg.response[i].artist);
 					var title = escapeHtml(msg.response[i].title);
 					
-					var savebutton = '<span class="badge download hint--top hint--rounded nomobile" data-hint="Save as ..."><a class="glyphicon glyphicon-cloud-download" href="' + msg.response[i].url + '" download="' + artist + ' - ' + title + '.mp3"></a></span>';
-					
-					var songlength = '<span class="badge hint--top hint--rounded nomobile" data-hint="Song length">' + msg.response[i].duration.toTime() + '</span>';
-					
-					var playbutton = '<span class="badge play hint--top hint--rounded" data-hint="Add to player"><span class="glyphicon glyphicon-play" id="playaddicon"></span></span>';
-					
-					var popovercontent = "<div class='ad'><!-- BEGIN ADREACTOR CODE --><div id='avp_zid_9'><script>_avp.push({ tagid: 'avp_zid_9', alias: '/', type: 'banner', zid: 9, pid: 53 });</script></div><!-- END ADREACTOR CODE --></div>";
-					
 					
 //					var uploaddate = moment(msg.response[i].date * 100).format('LL');
 					var uploaddate = "Not yet implemented" ;
@@ -224,11 +216,9 @@ $(document).ready(function ($) {
 					var genrenumber = msg.response[i].genre;
 					var genre = genres[genrenumber];
 					
-					var tablecontent = "<table class='table table-condensed table-responsive'><tbody><tr><td>Track</td><td>" + title + '</td></tr><tr><td>Artist</td><td>' + artist + '</td></tr><tr><td>Duration</td><td>' + msg.response[i].duration.toTime() + '</td></tr><tr><td>Genre</td><td>' + genre + '</td></tr><tr><td>Upload Date</td><td>' + uploaddate + "</td></tr></tbody></table>";
+					var link = '<a class="song" data-title="' + title + '" data-artist="' + artist + '" data-duration="' + msg.response[i].duration.toTime() + '" data-url="'+ msg.response[i].url +'" data-genre="'+ genre +'">'+ title + ' - ' + artist +'</a>';
 					
-					var link = '<a class="song" tabindex="0" data-toggle="popover" role="button" data-trigger="focus" data-placement="bottom" title="Song Info" data-html="true" data-content=" ' + tablecontent + popovercontent + ' ">' + artist + ' - ' + title + '</a>';
-					
-					$('#result > .list-group').append('<li class="list-group-item">'+ savebutton + songlength + playbutton + link+'</li>');
+					$('#result > .list-group').append('<li class="list-group-item">'+ link +'</li>');
 					
 					$('#result > .list-group').animateCss('fadeInUp');
 					
@@ -306,17 +296,29 @@ $(document).ready(function ($) {
 
 				});
 
-	//	Enable popovers
-				$(function () {
-					$('[data-toggle="popover"]').popover()
-					})
-						var _avp = _avp || [];
-					(function() {
-					var s = document.createElement('script');
-					s.type = 'text/javascript'; s.async = true; s.src = window.location.protocol + '//adserver.adreactor.com/js/libcode3.js';
-					var x = document.getElementsByTagName('script')[0];
-					x.parentNode.insertBefore(s, x);
-					})();
+				$(document).on("click", '.song', function (e) {
+					
+					$(".infobar").remove();
+					
+					var title = $(this).attr('data-title');
+					var artist = $(this).attr('data-artist');
+					var duration = $(this).attr('data-duration');
+					var genre = $(this).attr('data-genre');
+					var url = $(this).attr('data-url');
+					
+					var savebutton = '<span class="badge download hint--top hint--rounded nomobile" data-hint="Save as ..."><a class="glyphicon glyphicon-cloud-download" href="' + url + '" download="' + artist + ' - ' + title + '.mp3"></a></span>';
+					
+					var songlength = '<span class="badge hint--top hint--rounded nomobile" data-hint="Song length">' + duration + '</span>';
+					
+					var playbutton = '<span class="badge play hint--top hint--rounded" data-hint="Add to player"><span class="glyphicon glyphicon-play" id="playaddicon"></span></span>';
+					
+					var ad = "<div class='ad'><!-- BEGIN ADREACTOR CODE --><div id='avp_zid_9'><script>_avp.push({ tagid: 'avp_zid_9', alias: '/', type: 'banner', zid: 9, pid: 53 });</script></div><!-- END ADREACTOR CODE --></div>";
+					
+					
+					$(this).parent().after('<li class="list-group-item infobar"><a href='+url+'">'+title+' - '+artist+'</a>'+savebutton+playbutton+songlength+ad+'</li>');	
+
+		
+				});
 				
 				$('#loading').hide();
 

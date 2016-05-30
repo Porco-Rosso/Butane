@@ -613,8 +613,16 @@ input[type=checkbox] {
     margin: 0px 0 0;
 }
 
-.popover{
-	  max-width: 700px;
+.list-group-item.infobar {
+	  width: 99%;
+		margin-left: 0.5%;
+		background: #333333;
+		border-color: #333333;
+		z-index: -1;
+}
+
+.list-group-item.infobar a{
+		color:#FFF;
 }
 
 .ad{
