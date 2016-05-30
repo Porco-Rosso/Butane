@@ -200,11 +200,15 @@ $(document).ready(function ($) {
 					
 //					var uploaddate = moment(msg.response[i].date * 100).format('LL');
 					var uploaddate = "Not yet implemented" ;
-					console.log(msg.response[i]);
+					var genres = [
+						"Rock","Pop","Rap & Hip-Hop","Easy Listening","Dance & House","Instrumental","Metal","Dubstep","9","Drum & Bass","Trance","Chanson","Ethnic","Acoustic & Vocal","Reggae","Classical", "Indie Pop","Other","Speech","20","Alternative","Electropop & Disco"
+						];
+					var genrenumber = msg.response[i].genre;
+					var genre = genres[genrenumber];
 					
-					var tablecontent = "<table class='table table-condensed table-responsive'><tbody><tr><td>Track</td><td>" + msg.response[i].title + '</td></tr><tr><td>Artist</td><td>' + msg.response[i].artist + '</td></tr><tr><td>Duration</td><td>' + msg.response[i].duration.toTime() + '</td></tr><tr><td>Genre</td><td>' + msg.response[i].genre + '</td></tr><tr><td>Upload Date</td><td>' + uploaddate + "</td></tr></tbody></table>";
+					var tablecontent = "<table class='table table-condensed table-responsive'><tbody><tr><td>Track</td><td>" + msg.response[i].title + '</td></tr><tr><td>Artist</td><td>' + msg.response[i].artist + '</td></tr><tr><td>Duration</td><td>' + msg.response[i].duration.toTime() + '</td></tr><tr><td>Genre</td><td>' + genre + '</td></tr><tr><td>Upload Date</td><td>' + uploaddate + "</td></tr></tbody></table>";
 					
-					var link = '<a class="song" tabindex="0" data-toggle="popover" role="button" data-trigger="click" data-placement="bottom" title="Song Info" data-html="true" data-content=" ' + tablecontent + popovercontent + ' ">' + msg.response[i].artist + ' - ' + msg.response[i].title + '</a>';
+					var link = '<a class="song" tabindex="0" data-toggle="popover" role="button" data-trigger="focus" data-placement="bottom" title="Song Info" data-html="true" data-content=" ' + tablecontent + popovercontent + ' ">' + msg.response[i].artist + ' - ' + msg.response[i].title + '</a>';
 					
 					$('#result > .list-group').append('<li class="list-group-item">'+ savebutton + songlength + playbutton + link+'</li>');
 					

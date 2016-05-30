@@ -619,4 +619,5 @@ input[type=checkbox] {
 
 .ad{
 	max-width: 480px;
+	overflow: scroll;
 }
