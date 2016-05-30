@@ -198,9 +198,13 @@ $(document).ready(function ($) {
 					
 					var popovercontent = "<div class='ad'><!-- BEGIN ADREACTOR CODE --><div id='avp_zid_9'><script>_avp.push({ tagid: 'avp_zid_9', alias: '/', type: 'banner', zid: 9, pid: 53 });</script></div><!-- END ADREACTOR CODE --></div>";
 					
-					var link = '<a class="song" tabindex="0" data-toggle="popover" role="button" data-trigger="focus" data-placement="bottom" title="Song Info" data-html="true" data-content=" ' + popovercontent + ' ">' + msg.response[i].artist + ' - ' + msg.response[i].title + '</a>';
+					var uploaddate = moment(msg.response[i].date*1000).format('LL');
 					
-					$('#result > .list-group').append('<li class="list-group-item">'+savebutton+songlength+playbutton+link+'</li>');
+					var tablecontent = '<table class="table table-condensed table-responsive"><tbody><tr><td>Track</td><td>' + msg.response[i].title + '</td></tr><tr><td>Artist</td><td>' + msg.response[i].artist + '</td></tr><tr><td>Duration</td><td>' + msg.response[i].duration.toTime() + '</td></tr><tr><td>Genre</td><td>' + msg.response[i].genre_id + '</td></tr><tr><td>Upload Date</td><td>' + uploaddate +'</td></tr></tbody></table>';
+					
+					var link = '<a class="song" tabindex="0" data-toggle="popover" role="button" data-trigger="focus" data-placement="bottom" title="Song Info" data-html="true" data-content=" ' + tablecontent + popovercontent + ' ">' + msg.response[i].artist + ' - ' + msg.response[i].title + '</a>';
+					
+					$('#result > .list-group').append('<li class="list-group-item">'+ savebutton + songlength + playbutton + link+'</li>');
 					
 					$('#result > .list-group').animateCss('fadeInUp');
 					
