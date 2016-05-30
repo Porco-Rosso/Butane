@@ -612,3 +612,7 @@ margin-top: 10px;
 input[type=checkbox] {
     margin: 0px 0 0;
 }
+
+.ad{
+	max-width: 480px;
+}

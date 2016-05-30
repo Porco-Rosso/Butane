@@ -196,7 +196,7 @@ $(document).ready(function ($) {
 					
 					var playbutton = '<span class="badge play hint--top hint--rounded" data-hint="Add to player"><span class="glyphicon glyphicon-play" id="playaddicon"></span></span>';
 					
-					var popovercontent = "<div><!-- BEGIN ADREACTOR CODE --><div id='avp_zid_9'><script>_avp.push({ tagid: 'avp_zid_9', alias: '/', type: 'banner', zid: 9, pid: 53 });</script></div><!-- END ADREACTOR CODE --></div>";
+					var popovercontent = "<div class='ad'><!-- BEGIN ADREACTOR CODE --><div id='avp_zid_9'><script>_avp.push({ tagid: 'avp_zid_9', alias: '/', type: 'banner', zid: 9, pid: 53 });</script></div><!-- END ADREACTOR CODE --></div>";
 					
 					var link = '<a class="song" tabindex="0" data-toggle="popover" role="button" data-trigger="focus" data-placement="bottom" title="Song Info" data-html="true" data-content=" ' + popovercontent + ' ">' + msg.response[i].artist + ' - ' + msg.response[i].title + '</a>';
 					
