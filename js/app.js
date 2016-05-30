@@ -184,19 +184,37 @@ $(document).ready(function ($) {
 					prependError('<i class="fa fa-exclamation-triangle"></i>' + " Sorry, our team of trained monkeys couldn't find anything for this search query.");
 					return;
 				}
-
 				
+				var entityMap = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': '&quot;',
+    "'": '&#39;',
+    "/": '&#x2F;'
+					};
+
+				function escapeHtml(string) {
+						return String(string).replace(/[&<>"'\/]/g, function (s) {
+								return entityMap[s];
+						});
+				}
+
 				// build search result list  
 				$('#result > .list-group').html("");
 				for (var i = 1; i < msg.response.length; i++) {
 					
-					var savebutton = '<span class="badge download hint--top hint--rounded nomobile" data-hint="Save as ..."><a class="glyphicon glyphicon-cloud-download" href="' + msg.response[i].url + '" download="' + msg.response[i].artist + ' - ' + msg.response[i].title + '.mp3"></a></span>';
+					var artist = escapeHtml(msg.response[i].artist);
+					var title = escapeHtml(msg.response[i].title);
+					
+					var savebutton = '<span class="badge download hint--top hint--rounded nomobile" data-hint="Save as ..."><a class="glyphicon glyphicon-cloud-download" href="' + msg.response[i].url + '" download="' + artist + ' - ' + title + '.mp3"></a></span>';
 					
 					var songlength = '<span class="badge hint--top hint--rounded nomobile" data-hint="Song length">' + msg.response[i].duration.toTime() + '</span>';
 					
 					var playbutton = '<span class="badge play hint--top hint--rounded" data-hint="Add to player"><span class="glyphicon glyphicon-play" id="playaddicon"></span></span>';
 					
 					var popovercontent = "<div class='ad'><!-- BEGIN ADREACTOR CODE --><div id='avp_zid_9'><script>_avp.push({ tagid: 'avp_zid_9', alias: '/', type: 'banner', zid: 9, pid: 53 });</script></div><!-- END ADREACTOR CODE --></div>";
+					
 					
 //					var uploaddate = moment(msg.response[i].date * 100).format('LL');
 					var uploaddate = "Not yet implemented" ;
@@ -206,9 +224,9 @@ $(document).ready(function ($) {
 					var genrenumber = msg.response[i].genre;
 					var genre = genres[genrenumber];
 					
-					var tablecontent = "<table class='table table-condensed table-responsive'><tbody><tr><td>Track</td><td>" + msg.response[i].title + '</td></tr><tr><td>Artist</td><td>' + msg.response[i].artist + '</td></tr><tr><td>Duration</td><td>' + msg.response[i].duration.toTime() + '</td></tr><tr><td>Genre</td><td>' + genre + '</td></tr><tr><td>Upload Date</td><td>' + uploaddate + "</td></tr></tbody></table>";
+					var tablecontent = "<table class='table table-condensed table-responsive'><tbody><tr><td>Track</td><td>" + title + '</td></tr><tr><td>Artist</td><td>' + artist + '</td></tr><tr><td>Duration</td><td>' + msg.response[i].duration.toTime() + '</td></tr><tr><td>Genre</td><td>' + genre + '</td></tr><tr><td>Upload Date</td><td>' + uploaddate + "</td></tr></tbody></table>";
 					
-					var link = '<a class="song" tabindex="0" data-toggle="popover" role="button" data-trigger="focus" data-placement="bottom" title="Song Info" data-html="true" data-content=" ' + tablecontent + popovercontent + ' ">' + msg.response[i].artist + ' - ' + msg.response[i].title + '</a>';
+					var link = '<a class="song" tabindex="0" data-toggle="popover" role="button" data-trigger="focus" data-placement="bottom" title="Song Info" data-html="true" data-content=" ' + tablecontent + popovercontent + ' ">' + artist + ' - ' + title + '</a>';
 					
 					$('#result > .list-group').append('<li class="list-group-item">'+ savebutton + songlength + playbutton + link+'</li>');
 					
@@ -292,6 +310,14 @@ $(document).ready(function ($) {
 				$(function () {
 					$('[data-toggle="popover"]').popover()
 					})
+						var _avp = _avp || [];
+					(function() {
+					var s = document.createElement('script');
+					s.type = 'text/javascript'; s.async = true; s.src = window.location.protocol + '//adserver.adreactor.com/js/libcode3.js';
+					var x = document.getElementsByTagName('script')[0];
+					x.parentNode.insertBefore(s, x);
+					})();
+				
 				$('#loading').hide();
 
 			}
