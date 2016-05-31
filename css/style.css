@@ -233,6 +233,7 @@ color: #FF0000;
 .list-group .list-group-item {
     width: 100%;
     word-break: break-all;
+		z-index: 1;
 }
 
 
@@ -618,14 +619,18 @@ input[type=checkbox] {
 		margin-left: 0.5%;
 		background: #333333;
 		border-color: #333333;
-		z-index: -1;
+		margin-top: 1px;
 }
 
 .list-group-item.infobar a{
 		color:#FFF;
 }
+.list-group-item.infobar b{
+		color: #92A2A3;
+}
 
 .ad{
 	overflow: scroll;
 	text-align: center;
+	padding-top: 10px;
 }
