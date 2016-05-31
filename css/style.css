@@ -630,7 +630,7 @@ input[type=checkbox] {
 }
 
 .ad{
-	overflow: scroll;
+	overflow: visible;
 	text-align: center;
 	padding-top: 10px;
 }
