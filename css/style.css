@@ -634,3 +634,7 @@ input[type=checkbox] {
 	text-align: center;
 	padding-top: 10px;
 }
+
+.ad ::-webkit-scrollbar { 
+    display: none; 
+}
