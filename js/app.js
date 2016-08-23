@@ -34,7 +34,16 @@ $(document).ready(function ($) {
 	 * Now open this url from your logined to vk browser, this will redirect to blank.html with your token:
 	 * https://oauth.vk.com/authorize?client_id=APP_ID&client_secret=CLIENT_SECRET&scope=audio,offline&response_type=token
 	 *======================================================================== */
-	//        accessToken: "4d45c6ebef3b05a910071c948bb1374015c9e47ad953fba2f631d8bc1fca425a0a0bffcb4955d3af90c07",    First old token (Alashow one)
+
+//	====== List of access tokens =======
+//	Public VKDL Token 1
+//		accessToken: "ccd09c5c990069316002d28ab7f0e0ba5841fbcdc626c0524afbe4faea92451ea43a4240cab3de8eda4df",
+//	Public VKDL Token 2
+//		accessToken: "f41e76716a5dd6d0f33f95d34e0c24ee20164e78f7660cf7bfd375f5f8ea65dc63a6a3f99d2035b9df1d3",
+//	Public VKDL Token 3
+//		accessToken: "061b3cb52f205e981d3e74fe52a49b404710789e79c46550393af78ab1bac8c02c0b677accd014f269e4d",
+//	First, Old token (Alashow one)
+//		accessToken: "4d45c6ebef3b05a910071c948bb1374015c9e47ad953fba2f631d8bc1fca425a0a0bffcb4955d3af90c07",
 
 	//Config for vk audio.search api
 	var vkConfig = {
