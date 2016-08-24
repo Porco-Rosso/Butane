@@ -50,7 +50,7 @@ $(document).ready(function ($) {
 		url: "https://api.vk.com/method/audio.search",
 		sort: 2,
 		autoComplete: 0,
-		accessToken: "ccd09c5c990069316002d28ab7f0e0ba5841fbcdc626c0524afbe4faea92451ea43a4240cab3de8eda4df", // Public Vkdl 1
+		accessToken: "f41e76716a5dd6d0f33f95d34e0c24ee20164e78f7660cf7bfd375f5f8ea65dc63a6a3f99d2035b9df1d3", // Public Vkdl 2
 		count: 300
 	};
 	window.vkConfig = vkConfig;
