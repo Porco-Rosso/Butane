@@ -194,11 +194,44 @@ $(document).ready(function ($) {
 					return;
 				}
 
+				var entityMap = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': '&quot;',
+    "'": '&#39;',
+    "/": '&#x2F;'
+					};
+				
+								function escapeHtml(string) {
+						return String(string).replace(/[&<>"'\/]/g, function (s) {
+								return entityMap[s];
+						});
+				}
 				
 				// build search result list  
 				$('#result > .list-group').html("");
 				for (var i = 1; i < msg.response.length; i++) {
-					$('#result > .list-group').append('<li class="list-group-item"> <span class="badge download hint--top hint--rounded nomobile" data-hint="Save as ..."><a class="glyphicon glyphicon-cloud-download" href="' + msg.response[i].url + '" download="' + msg.response[i].artist + ' - ' + msg.response[i].title + '.mp3"></a></span> <span class="badge hint--top hint--rounded nomobile" data-hint="Song length">' + msg.response[i].duration.toTime() + '</span><span class="badge play hint--top hint--rounded" data-hint="Add to player"><span class="glyphicon glyphicon-play" id="playaddicon"></span></span><a  target="_blank" href="' + msg.response[i].url + '"  download="' + msg.response[i].artist + ' - ' + msg.response[i].title + '.mp3">' + msg.response[i].artist + ' - ' + msg.response[i].title + '</a></li>');
+					
+					var artist = escapeHtml(msg.response[i].artist);
+					var title = escapeHtml(msg.response[i].title);
+					var url =  msg.response[i].url;
+					var duration = msg.response[i].duration.toTime();					
+//					var uploaddate = moment(msg.response[i].date * 100).format('LL');
+					var uploaddate = "Not yet implemented" ;
+					var genres = [
+						"Rock","Pop","Rap & Hip-Hop","Easy Listening","Dance & House","Instrumental","Metal","Dubstep","9","Drum & Bass","Trance","Chanson","Ethnic","Acoustic & Vocal","Reggae","Classical", "Indie Pop","Other","Speech","20","Alternative","Electropop & Disco"
+						];
+					var genrenumber = msg.response[i].genre;
+					var genre = genres[genrenumber];
+					var titleartist = title + ' - ' + artist;
+					var savebutton = '<span class="badge download hint--top hint--rounded nomobile" data-hint="Save as ..."><a class="glyphicon glyphicon-cloud-download" href="' + url + '" download="' + artist + ' - ' + title + '.mp3"></a></span>';
+					var songlength = '<span class="badge hint--top hint--rounded nomobile" data-hint="Song length">' + duration + '</span>';
+					var playbutton = '<span class="badge play hint--top hint--rounded" data-hint="Add to player" data-url="'+url+'" data-titleartist="'+titleartist+'"><span class="glyphicon glyphicon-play" id="playaddicon"></span></span>';
+					
+					var link = '<a class="song" data-title="' + title + '" data-artist="' + artist + '" data-duration="' + duration + '" data-url="'+ url +'" data-genre="'+ genre +'">'+ titleartist +'</a>';
+					
+					$('#result > .list-group').append('<li class="list-group-item">'+link +savebutton+playbutton+songlength+'</li>');
 					
 					$('#result > .list-group').animateCss('fadeInUp');
 					
@@ -210,7 +243,7 @@ $(document).ready(function ($) {
 					if (index == 0) {
 
 						//Change source of audio, show then play
-						$("#jp_audio_0").attr('src', $(this).parent().find('a').attr('href'));
+						$("#jp_audio_0").attr('src', $(this).attr('data-url'));
 
 						$("#jp_audio_0")[0].play();
 						updatebuffer();
@@ -221,17 +254,18 @@ $(document).ready(function ($) {
 						var ulist = document.getElementById("playlist-item");
 						var newItem = document.createElement("li");
 
-
-						a.textContent = $(this).parent().text().slice(7);
-						a.setAttribute('href', $(this).parent().find('a').attr('href'));
-						a.setAttribute('download', a.textContent);
-						newItem.innerHTML = newItem.innerHTML + '<i></i>';
-						newItem.innerHTML = newItem.innerHTML + '<img id="equalizer-icon" src="images/google-equalizer-white.gif">';
-						newItem.appendChild(a);
-						newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-times"></span>'; // delete icon
-						newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-cloud-download nomobile"><a class="fakelink hint--top hint--rounded " data-hint="Save as ..." target="_blank" href="' + $(this).parent().find('a').attr('href') + '" download="' + a.textContent + '.mp3"></a></span>'; // download link
-						newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-sort nomobile"></span>'; //sorting icon
-						ulist.appendChild(newItem);
+								a.textContent = $(this).attr('data-titleartist');
+								a.setAttribute('href', $(this).attr('data-url'));
+								a.setAttribute('download', a.textContent);
+								newItem.innerHTML = newItem.innerHTML + '<i></i>';
+								newItem.innerHTML = newItem.innerHTML + '<img id="equalizer-icon" src="images/google-equalizer-white.gif">';
+								newItem.appendChild(a);
+								newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-times"></span>'; // delete icon
+								newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-cloud-download nomobile"><a class="fakelink hint--top hint--rounded " data-hint="Save as ..." target="_blank" href="' + $(this).attr('data-url') + '" download="' + a.textContent + '.mp3"></a></span>'; // download link
+								newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-sort nomobile"></span>'; //sorting icon
+								ulist.appendChild(newItem);
+					
+						
 
 						index++;
 						var _playlist = document.getElementById("playlist-item");
@@ -247,28 +281,28 @@ $(document).ready(function ($) {
 					} else {
 						//add song to list only
 
-						var a = document.createElement("a");
-						var ulist = document.getElementById("playlist-item");
-						var newItem = document.createElement("li");
+								var a = document.createElement("a");
+								var ulist = document.getElementById("playlist-item");
+								var newItem = document.createElement("li");
 
-						a.textContent = $(this).parent().text().slice(7);
-						a.setAttribute('href', $(this).parent().find('a').attr('href'));
-						a.setAttribute('download', a.textContent);
-						newItem.innerHTML = newItem.innerHTML + '<i class="fa-li fa fa-angle-right"></i>';
-						newItem.appendChild(a);
-						newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-times"></span>'; // delete icon
-						newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-cloud-download nomobile"><a class="fakelink hint--top hint--rounded " data-hint="Save as ..." target="_blank" href="' + $(this).parent().find('a').attr('href') + '" download="' + a.textContent + '.mp3"></a></span>'; // download link
-						newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-sort nomobile"></span>'; //sorting icon
+								a.textContent = $(this).attr('data-titleartist');
+								a.setAttribute('href', $(this).attr('data-url'));
+								a.setAttribute('download', a.textContent);
+								newItem.innerHTML = newItem.innerHTML + '<i class="fa-li fa fa-angle-right"></i>';
+								newItem.appendChild(a);
+								newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-times"></span>'; // delete icon
+								newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-cloud-download nomobile"><a class="fakelink hint--top hint--rounded " data-hint="Save as ..." target="_blank" href="' + $(this).attr('data-url') + '" download="' + a.textContent + '.mp3"></a></span>'; // download link
+								newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-sort nomobile"></span>'; //sorting icon
 
-						ulist.appendChild(newItem);
+								ulist.appendChild(newItem);
 
-						var _playlist = document.getElementById("playlist-item");
+								var _playlist = document.getElementById("playlist-item");
 
-						changeicons();
-						document.title = $(this).parent().text().slice(7);
+								
+								document.title = $(this).attr('data-titleartist');
 
-						$('.sortable').sortable();
-						$('.sortable').disableSelection();
+								$('.sortable').sortable();
+								$('.sortable').disableSelection();
 
 					}
 
