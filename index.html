@@ -5,9 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/vnd.microsoft.icon">
+		<link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-touch-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon-180x180.png">
+		<link rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="images/favicon/favicon-194x194.png" sizes="194x194">
+		<link rel="icon" type="image/png" href="images/favicon/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="images/favicon/android-chrome-192x192.png" sizes="192x192">
+		<link rel="icon" type="image/png" href="images/favicon/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="images/favicon/manifest.json">
+		<link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#d56a5b">
+		<link rel="shortcut icon" href="images/favicon/favicon.ico">
+		<meta name="msapplication-TileColor" content="#2b5797">
+		<meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
+		<meta name="msapplication-config" content="images/favicon/browserconfig.xml">
+		<meta name="theme-color" content="#444444">
 
-    <title>Vkdl</title>
+    <title>Butane</title>
+
     
 <!--    Google Analytics tracking-->
 <script>
@@ -33,22 +54,26 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700|Raleway:400,700" type="text/css">
         <!-- tooltips -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/hint.css/1.3.2/hint.min.css">
+	
+		<!--	Animatecss.js-->
+	<link rel="stylesheet" href="css/animate.css">
+	
         <!--jplayer -->
-    <link href="js/jplayer-custom/skin/jplayer.vkdl-theme.css" rel="stylesheet" type="text/css" />
+    <link href="js/jplayer-custom/skin/jplayer.Butane-theme.css" rel="stylesheet" type="text/css" />
         <!--particle.js css -->
     <link rel="stylesheet" media="screen" href="css/particlesjs.css">
     
-    <!-- vkdl css-->
+    <!-- Butane css-->
     <link rel="stylesheet" href="css/style.css">
     
 </head>
     
 <body class="drawer drawer-right">
-    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar navbar-default navbar-fixed-top hidden-on-load">
         <div class="container" role="banner">
             <div class="navbar-header">
                 <a class="navbar-brand" id="navbar-brand" onclick="window.scrollTo(0, 0);">
-                    <span><img class="logo-image" src="images/Logo.png"></span><span class="logo-text">Music Player</span>
+                    <span><img class="logo-image" src="images/Logo.png"></span><span class="logo-text">Butane</span><span class="logo-subtext nomobile"> Fire from your web pipes</span>
                 </a>
                     <label class="switch">
                         <i class="icon-ok"></i>
@@ -113,19 +138,13 @@ END The PLaylist loader
 <!--    End of drawer code -->
     
 <!--Playlist and Player code    -->
-    <div class="wrapper">
-        <div class="container">
+    <div class="wrapper hidden-on-load">
+        <div class="container" id="wrapper-container">
             <div class="col-xs-12">
 
 
                 <div class="list-group" id="playlist">
                     <div class="list-group-item" id="playlist-list-item">
-                        <div class="playlist"></div>
-                    <!-- Old audio player
-                        <audio class="navbar-audio" id="navbar-audio" controls autoplay>
-                            Your browser sucks, get a newer one to use this! (like Google Chrome)
-                        </audio>
-                    -->
 <!--Start of Jplayer -->
                         <div class="player-container">
                         	<div id="jquery_jplayer_1" class="jp-jplayer">
@@ -185,13 +204,12 @@ END The PLaylist loader
 <!--End of Results-->
     
 <!--Footer    -->
-    <div id="footer">
+    <div id="footer" class="hidden-on-load">
         <div class="container">
-            <p class="muted credit text-center">Developed by <a href="https://github.com/Porco-Rosso" class="hint--top hint--rounded" data-hint="Github">Porco-Rosso</a> @ <a href="http://stereostance.com" target="_blank">Stereostance.com</a><span class="nomobile"> - Version <a href="https://github.com/Porco-Rosso/vkdl">2.3.0 <i class="fa fa-github"></i></a> - based on code from <a href="https://github.com/alashow/music" target="_blank">Alashow</a></span>
+            <p class="muted credit text-center">Developed by <a href="https://github.com/Porco-Rosso" class="hint--top hint--rounded" data-hint="🐷 Github">Porco-Rosso</a> @ <a href="http://stereostance.com" target="_blank" class="hint--top hint--rounded" data-hint="🏎 + ♪" >Stereostance.com</a><span class="nomobile"> - Version <a href="https://github.com/Porco-Rosso/Butane" class="hint--top hint--rounded" data-hint="See the code!">3.1.3 <i class="fa fa-github"></i></a> - <a href="https://github.com/Porco-Rosso/Butane-userscript" class="hint--top hint--rounded" data-hint="Get the userscript!"><i class="fa fa-code"></i></a> - based on code from <a href="https://github.com/alashow/music" target="_blank" class="hint--top hint--rounded" data-hint="Thanks!">Alashow</a></span>
             </p>
         </div>
     </div>
-<!--        <div id="particles-js"></div>-->
 
 <!--End of Footer-->
     
@@ -208,14 +226,14 @@ END The PLaylist loader
     <!-- jplayer -->
     <script type="text/javascript" src="js/jplayer-custom/js/jquery.jplayer.min.js"></script>
     
-    <!-- particles.js -->
-<!--    <script src="js/particles.js"></script>-->
-    
     <!-- Playlist manager JS-->
     <script src="js/playlist-saver.js"></script>
     
     <!--  Switch Javascript-->
     <script src="js/switch.js"></script>
+	
+	<!--  Animate page load-->
+	<script src="js/pageloadanimation.js" type="text/javascript" charset="utf-8"></script>
     
     <!-- Main JS files   -->
 	<script src="js/urlplaylistloader.js" type="text/javascript" charset="utf-8"></script>

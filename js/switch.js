@@ -17,7 +17,7 @@ $(function () {
 
 			$(this).toggleClass('checked');
 
-			$("<div id='particles-js'></div>").insertAfter("#footer");
+			$("<div id='particles-js'></div>").insertBefore("#wrapper-container");
 
 			var headID = document.getElementsByTagName("head")[0];
 			var newScript = document.createElement('script');

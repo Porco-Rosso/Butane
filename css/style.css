@@ -10,18 +10,31 @@ body {
     font-weight: 400;
     height: 100%;
     padding-top: 65px;
-    background-color: #333333
+    background-color: #333333;
+}
+
+/*To make page load look more professional*/
+ .hidden-on-load { display: none;
 }
 
 .logo-image {
-    height: 30px;
+    height: 35px;
     padding-right: 15px;
+	margin-bottom: 5px;
 }
 
 .logo-text {
     margin-top: -10px;
     transition: all 0.2s ease;
 }
+
+.navbar-default .navbar-brand .logo-subtext {
+	color: rgba(147, 163, 164, 0.3);
+    font-size: 14px;
+    font-style: italic;
+    padding-left: 8px;
+}
+
 
 #navbar-brand > span.logo-text:hover {
     color: white;
@@ -36,12 +49,8 @@ body {
     font-family: 'Raleway';
 }
 
-.navbar-brand{
-    padding-top: 20px;
-}
-
 .navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand{
-    margin-left: 0px;
+    margin-left: 4px;
 }
 
 
@@ -85,30 +94,53 @@ bottom: 3px;
     width: 100%;
 }
 
+#playlist {
+	margin-top: 20px
+}
+
 audio {
     width: 100%
 }
 
 .player-container{
+	margin-top: 20px;
     margin-left: 12px;
     margin-right: 25px;    
 }
 
 .wrapper {
-    min-height: 97%;
+	position: relative;
+	min-height: 100%;
+	width: 100%;
+	top: 0px;
+	margin-top: 0px;
+    bottom: 45px;
     background-color: #34495e;
 }
+
 .wrapper:after {
     content: "";
     display: block;
-}
-#playlist {
-    padding-top: 20px;
 }
 
 .fa-ul{
     width: 95%;
     margin-bottom: 22px;
+}
+
+#equalizer-icon{
+    height: 23px;
+    padding-left: 5px;
+    padding-right: 8px;
+    margin-top: -5px;
+    margin-left: -32px;
+}
+
+#playlist-item {
+	/*	animate.css*/
+  -webkit-animation-duration: 0.5s;
+  -mos-animation-duration: 0.5s;
+  -o-animation-duration: 0.5s;
 }
 
 #playlist-list-item {
@@ -148,6 +180,11 @@ audio {
     margin-top: 2px;
     padding-bottom: 3px;
     padding-top: 3px;
+	
+		/*	animate.css*/
+  -webkit-animation-duration: 0.2s;
+  -mos-animation-duration: 0.2s;
+  -o-animation-duration: 0.2s;
 }
 
 #playlist-list-item li:hover span.fa-li.fa.fa-sort {
@@ -177,7 +214,7 @@ color: #FF0000;
 }
 
 .list-group{
-  margin-bottom: 45px;
+  margin-bottom: 70px;
 }
 
 .list-group-item>.badge a {
@@ -215,7 +252,12 @@ color: #DC3D24;
     color: #7f8c8d;
     font-size: 0.9em;
     background-color: #333333;
-    margin-top: -20px;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	z-index: 10;
+	height: 45px;
+	
 }
 #footer .container {
     width: auto;
@@ -283,6 +325,11 @@ a {
 }
 .input-group {
     margin-top: 25px;
+/*animate.css*/
+  -webkit-animation-duration: 0.3s;
+  -mos-animation-duration: 0.3s;
+  -o-animation-duration: 0.3s;
+}
 }
 .spin {
     -webkit-animation: spin .2s infinite linear;
@@ -318,6 +365,14 @@ a {
         transform: rotate(360deg);
     }
 }
+
+#result{
+/*	animate.css*/
+  -webkit-animation-duration: 0.3s;
+  -mos-animation-duration: 0.3s;
+  -o-animation-duration: 0.3s;
+}
+
 li.list-group-item a {
     color: #555555;
 }

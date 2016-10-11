@@ -6,6 +6,16 @@
 $(document).ready(function ($) {
 
 	var index = 0;
+	
+	//	AnimateCss
+	$.fn.extend({
+    animateCss: function (animationName) {
+        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        $(this).addClass('animated ' + animationName).one(animationEnd, function() {
+            $(this).removeClass('animated ' + animationName);
+        });
+    }
+	});
 
 	//Trigger search button when pressing enter button
 	$('#query').bind('keypress', function (event) {
@@ -24,14 +34,23 @@ $(document).ready(function ($) {
 	 * Now open this url from your logined to vk browser, this will redirect to blank.html with your token:
 	 * https://oauth.vk.com/authorize?client_id=APP_ID&client_secret=CLIENT_SECRET&scope=audio,offline&response_type=token
 	 *======================================================================== */
-	//        accessToken: "4d45c6ebef3b05a910071c948bb1374015c9e47ad953fba2f631d8bc1fca425a0a0bffcb4955d3af90c07",    First old token (Alashow one)
+
+//	====== List of access tokens =======
+//	Public VKDL Token 1
+//		accessToken: "ccd09c5c990069316002d28ab7f0e0ba5841fbcdc626c0524afbe4faea92451ea43a4240cab3de8eda4df",
+//	Public VKDL Token 2
+//		accessToken: "f41e76716a5dd6d0f33f95d34e0c24ee20164e78f7660cf7bfd375f5f8ea65dc63a6a3f99d2035b9df1d3",
+//	Public VKDL Token 3
+//		accessToken: "061b3cb52f205e981d3e74fe52a49b404710789e79c46550393af78ab1bac8c02c0b677accd014f269e4d",
+//	First, Old token (Alashow one)
+//		accessToken: "4d45c6ebef3b05a910071c948bb1374015c9e47ad953fba2f631d8bc1fca425a0a0bffcb4955d3af90c07",
 
 	//Config for vk audio.search api
 	var vkConfig = {
 		url: "https://api.vk.com/method/audio.search",
 		sort: 2,
 		autoComplete: 0,
-		accessToken: "ccd09c5c990069316002d28ab7f0e0ba5841fbcdc626c0524afbe4faea92451ea43a4240cab3de8eda4df", // Public Vkdl 1
+		accessToken: "f41e76716a5dd6d0f33f95d34e0c24ee20164e78f7660cf7bfd375f5f8ea65dc63a6a3f99d2035b9df1d3", // Public Vkdl 2
 		count: 300
 	};
 	window.vkConfig = vkConfig;
@@ -75,7 +94,18 @@ $(document).ready(function ($) {
 
 	$('.search').on('click touchstart', function (event) {
 		query = $('#query').val();
-		if (query == "") return; // return if query empty
+		$('.input-group').animateCss('pulse');
+		if (query == ""){
+			$('.input-group').animateCss('shake');
+			$('#result').animateCss('fadeOut');
+			setTimeout(function(){
+    		$('#result > .list-group').html("");
+			window.location.hash = "";
+		
+			}, 280);
+			
+			return; // return if query empty
+						};
 		search(query, null, null);
 	});
 
@@ -117,6 +147,8 @@ $(document).ready(function ($) {
 		$('#result > .list-group').prepend('<li class="list-group-item list-group-item-danger">' + error + '</li>');
 		$('#loading').hide();
 	}
+		// To make function Global 
+		window.prependError =  prependError;
 
 	//Main function for search
 	function search(_query, captcha_sid, captcha_key) {
@@ -162,12 +194,47 @@ $(document).ready(function ($) {
 					return;
 				}
 
-
+				var entityMap = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': '&quot;',
+    "'": '&#39;',
+    "/": '&#x2F;'
+					};
+				
+								function escapeHtml(string) {
+						return String(string).replace(/[&<>"'\/]/g, function (s) {
+								return entityMap[s];
+						});
+				}
+				
 				// build search result list  
 				$('#result > .list-group').html("");
 				for (var i = 1; i < msg.response.length; i++) {
-					$('#result > .list-group').append('<li class="list-group-item"> <span class="badge download hint--top hint--rounded nomobile" data-hint="Save as ..."><a class="glyphicon glyphicon-cloud-download" href="' + msg.response[i].url + '" download="' + msg.response[i].artist + ' - ' + msg.response[i].title + '.mp3"></a></span> <span class="badge hint--top hint--rounded nomobile" data-hint="Song length">' + msg.response[i].duration.toTime() + '</span><span class="badge play hint--top hint--rounded" data-hint="Add to player"><span class="glyphicon glyphicon-play" id="playaddicon"></span></span><a  target="_blank" href="' + msg.response[i].url + '"  download="' + msg.response[i].artist + ' - ' + msg.response[i].title + '.mp3">' + msg.response[i].artist + ' - ' + msg.response[i].title + '</a></li>');
-
+					
+					var artist = escapeHtml(msg.response[i].artist);
+					var title = escapeHtml(msg.response[i].title);
+					var url =  msg.response[i].url;
+					var duration = msg.response[i].duration.toTime();					
+//					var uploaddate = moment(msg.response[i].date * 100).format('LL');
+					var uploaddate = "Not yet implemented" ;
+					var genres = [
+						"Rock","Pop","Rap & Hip-Hop","Easy Listening","Dance & House","Instrumental","Metal","Dubstep","9","Drum & Bass","Trance","Chanson","Ethnic","Acoustic & Vocal","Reggae","Classical", "Indie Pop","Other","Speech","20","Alternative","Electropop & Disco"
+						];
+					var genrenumber = msg.response[i].genre;
+					var genre = genres[genrenumber];
+					var titleartist = title + ' - ' + artist;
+					var savebutton = '<span class="badge download hint--top hint--rounded nomobile" data-hint="Save as ..."><a class="glyphicon glyphicon-cloud-download" href="' + url + '" download="' + artist + ' - ' + title + '.mp3"></a></span>';
+					var songlength = '<span class="badge hint--top hint--rounded nomobile" data-hint="Song length">' + duration + '</span>';
+					var playbutton = '<span class="badge play hint--top hint--rounded" data-hint="Add to player" data-url="'+url+'" data-titleartist="'+titleartist+'"><span class="glyphicon glyphicon-play" id="playaddicon"></span></span>';
+					
+					var link = '<a class="song" data-title="' + title + '" data-artist="' + artist + '" data-duration="' + duration + '" data-url="'+ url +'" data-genre="'+ genre +'">'+ titleartist +'</a>';
+					
+					$('#result > .list-group').append('<li class="list-group-item">'+link +savebutton+playbutton+songlength+'</li>');
+					
+					$('#result > .list-group').animateCss('fadeInUp');
+					
 				}
 
 
@@ -176,7 +243,7 @@ $(document).ready(function ($) {
 					if (index == 0) {
 
 						//Change source of audio, show then play
-						$("#jp_audio_0").attr('src', $(this).parent().find('a').attr('href'));
+						$("#jp_audio_0").attr('src', $(this).attr('data-url'));
 
 						$("#jp_audio_0")[0].play();
 						updatebuffer();
@@ -187,16 +254,18 @@ $(document).ready(function ($) {
 						var ulist = document.getElementById("playlist-item");
 						var newItem = document.createElement("li");
 
-
-						a.textContent = $(this).parent().text().slice(7);
-						a.setAttribute('href', $(this).parent().find('a').attr('href'));
-						a.setAttribute('download', a.textContent);
-						newItem.innerHTML = newItem.innerHTML + '<i class="fa-li fa fa-volume-up"></i>';
-						newItem.appendChild(a);
-						newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-times"></span>'; // delete icon
-						newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-cloud-download nomobile"><a class="fakelink hint--top hint--rounded " data-hint="Save as ..." target="_blank" href="' + $(this).parent().find('a').attr('href') + '" download="' + a.textContent + '.mp3"></a></span>'; // download link
-						newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-sort nomobile"></span>'; //sorting icon
-						ulist.appendChild(newItem);
+								a.textContent = $(this).attr('data-titleartist');
+								a.setAttribute('href', $(this).attr('data-url'));
+								a.setAttribute('download', a.textContent);
+								newItem.innerHTML = newItem.innerHTML + '<i></i>';
+								newItem.innerHTML = newItem.innerHTML + '<img id="equalizer-icon" src="images/google-equalizer-white.gif">';
+								newItem.appendChild(a);
+								newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-times"></span>'; // delete icon
+								newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-cloud-download nomobile"><a class="fakelink hint--top hint--rounded " data-hint="Save as ..." target="_blank" href="' + $(this).attr('data-url') + '" download="' + a.textContent + '.mp3"></a></span>'; // download link
+								newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-sort nomobile"></span>'; //sorting icon
+								ulist.appendChild(newItem);
+					
+						
 
 						index++;
 						var _playlist = document.getElementById("playlist-item");
@@ -212,28 +281,28 @@ $(document).ready(function ($) {
 					} else {
 						//add song to list only
 
-						var a = document.createElement("a");
-						var ulist = document.getElementById("playlist-item");
-						var newItem = document.createElement("li");
+								var a = document.createElement("a");
+								var ulist = document.getElementById("playlist-item");
+								var newItem = document.createElement("li");
 
-						a.textContent = $(this).parent().text().slice(7);
-						a.setAttribute('href', $(this).parent().find('a').attr('href'));
-						a.setAttribute('download', a.textContent);
-						newItem.innerHTML = newItem.innerHTML + '<i class="fa-li fa fa-angle-right"></i>';
-						newItem.appendChild(a);
-						newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-times"></span>'; // delete icon
-						newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-cloud-download nomobile"><a class="fakelink hint--top hint--rounded " data-hint="Save as ..." target="_blank" href="' + $(this).parent().find('a').attr('href') + '" download="' + a.textContent + '.mp3"></a></span>'; // download link
-						newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-sort nomobile"></span>'; //sorting icon
+								a.textContent = $(this).attr('data-titleartist');
+								a.setAttribute('href', $(this).attr('data-url'));
+								a.setAttribute('download', a.textContent);
+								newItem.innerHTML = newItem.innerHTML + '<i class="fa-li fa fa-angle-right"></i>';
+								newItem.appendChild(a);
+								newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-times"></span>'; // delete icon
+								newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-cloud-download nomobile"><a class="fakelink hint--top hint--rounded " data-hint="Save as ..." target="_blank" href="' + $(this).attr('data-url') + '" download="' + a.textContent + '.mp3"></a></span>'; // download link
+								newItem.innerHTML = newItem.innerHTML + '<span class="fa-li fa fa-sort nomobile"></span>'; //sorting icon
 
-						ulist.appendChild(newItem);
+								ulist.appendChild(newItem);
 
-						var _playlist = document.getElementById("playlist-item");
+								var _playlist = document.getElementById("playlist-item");
 
-						changeicons();
-						document.title = $(this).parent().text().slice(7);
+								
+								document.title = $(this).attr('data-titleartist');
 
-						$('.sortable').sortable();
-						$('.sortable').disableSelection();
+								$('.sortable').sortable();
+								$('.sortable').disableSelection();
 
 					}
 
@@ -320,10 +389,12 @@ function playlistItemClick(clickedElement) {
 	$("#jp_audio_0")[0].play();
 	updatebuffer();
 	document.title = $('.selected').text();
-	$("#playlist-item li i").removeClass("fa-li fa  fa-volume-up ");
+	$("#equalizer-icon").remove();
 	$("#playlist-item li i").addClass("fa-li fa fa-angle-right");
 	$("#playlist-item li.selected i").removeClass("fa-li fa fa-angle-right");
-	$("#playlist-item li.selected i").addClass("fa-li fa  fa-volume-up ");
+	$("#playlist-item li.selected").prepend('<img id="equalizer-icon" src="images/google-equalizer-white.gif">');
+	
+	
 
 	window.location.hash = $('.selected').text().split(' ').join('+');
 }
@@ -358,7 +429,7 @@ songendlistener();
 $(document).on("click", '#info-button', function (e) {
 	bootbox.dialog({
 
-		message: '<ul><li>Play a song by clicking the <span class="glyphicon glyphicon-play"><span> button</li><li>Add a song to the playlist by clicking the <span class="glyphicon glyphicon-plus"><span> button </li><li>Clicking the title of a song in the <b>playlist</b> will begin playback of that track</li><li>When a song finishes, the next track will start playing automatically</li><li>To download a song, right click the <span class="glyphicon glyphicon-cloud-download"></span> button and Save as..</li><br><li>To clear the playlist, click the "clear playlist" button </li><li>You can save playlists as a .txt file, and import them from the menu accessed through the "hamburger" icon (<b>NOT</b> working without Chrome)</li><li>Direct mp3 <b>links</b> are bound to your IP, so you can`t share them. However, feel free to share whatever you download</li><li>If you right click - Save As... the mp3 <i>should</i> be automatically renamed</li><li>Is this legal? shhh... lets just say it is your responsability to respect copyrite law</li></ul><br>I hope you find this tool as kick-ass as I do. Send me a message if you run into any problems or have suggestions, I am still working on this and developing new features.<br><br>If you find this webapp useful, please give us a like on  <a href="http://facebook.com/stereostance" class="btn" style="background-color: #3b5998; color:#FFF; padding: 0px 5px; "> Facbook <span class="glyphicon glyphicon-thumbs-up"></span></a>',
+		message: '<ul><li>To download a song, right click the <span class="glyphicon glyphicon-cloud-download"></span> button and Save as...</li><li>Make sure to "Save as..." to preserve the filename.</li><li>Click the  <i class="fa fa-bars" aria-hidden="true"> </i> icon to save and import playlists as a .txt file</li><li>Click the <i class="fa fa-toggle-on" aria-hidden="true"></i> to enable the visulaizer</li><li>It is your responsability to respect copyrite law <i class="fa fa-copyright" aria-hidden="true"></i> !</li></ul><br>I hope you find this tool as kick-ass as I do. <a href="https://github.com/Porco-Rosso/vkdl/issues/new?title=Bug%20or%20Suggestion">Open an issue</a> if you run into any problems or have a suggestion, I am still working on this and developing new features.<br><br>If you find this webapp useful, please give us a like on  <a href="http://facebook.com/stereostance" class="btn" style="background-color: #3b5998; color:#FFF; padding: 0px 5px; "> Facbook <span class="glyphicon glyphicon-thumbs-up"></span></a>',
 		title: 'Just some tips... <span class="glyphicon glyphicon-heart"></span>',
 		buttons: {
 			success: {
@@ -374,13 +445,22 @@ $(document).on("click", '#info-button', function (e) {
 
 // clear palylist script
 $(document).on("click", '#clear-button', function (e) {
-	$('#playlist-item').empty();
+	$('#playlist-item').animateCss('fadeOut');	
+	
+	setTimeout(function(){
+    $('#playlist-item').empty();
+						 }, 500);
+	
 	index = 0;
 });
 
 // clear palylist item script
 $(document).on("click", '#playlist-item span.fa-li.fa.fa-times', function (e) {
-	$(this).parent().remove();
+	var that = this;
+	$(this).parent().animateCss('fadeOut');		
+	setTimeout(function(){
+    $(that).parent().remove();
+						 }, 200);
 	index--;
 });
 
@@ -394,22 +474,33 @@ $(document).ready(function () {
 		if (ScrollTop > 600) {
 			$('span.logo-text').text('Scroll back to top ↑');
 		} else {
-			$('span.logo-text').text('Music Player');
+			$('span.logo-text').text('Butane');
 		}
 
 	});
 });
 
+function freezeequalizer() {
+if($('#jp_container_1 > div.jp-controls > a.jp-play').css('display') == 'inline')
+{
+	$("#equalizer-icon").attr("src", "images/google-equalizer-white.gif");
+}
+else
+{
+    $("#equalizer-icon").attr("src", "images/google-equalizer-white-paused.gif");
+}
+}
 
 // hotkeys script
 
 function playorpause() {
 	var audio = $("#jp_audio_0");
+	freezeequalizer();
 	if (audio.paused) {
 		audio.play();
 	} else {
 		audio.pause();
-	}
+			}
 	return false;
 }
 

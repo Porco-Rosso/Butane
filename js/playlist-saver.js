@@ -74,6 +74,8 @@ function loadFileAsText() {
 
 		//Main function for search, edited to fit the playlist builder
 		function searchforplaylist(playlistarray, captcha_sid, captcha_key) {
+			
+			
 
 			//  Uncomment the line below if you would like the URL hash to change once the tracks are loaded 
 			//    window.location.hash = correctplaylistarray[0][0].slice(0,-1);
@@ -96,14 +98,14 @@ function loadFileAsText() {
 				beforeSend: function () {},
 				// error handling (Doesn't work in loading playlists because the search results are not actually displayed, keeping it anyway.
 				error: function () {
-					appendError('Internet error...');
+					prependError('Internet error...');
 				},
 				success: function (msg) {
 					if (msg.error) {
 						if (msg.error.error_code == 5) {
-							appendError("Access Token error, contact me");
+							prependError("Access Token error, contact me");
 						} else {
-							appendError("Oops, something went wrong : " + msg.error.error_msg);
+							prependError("Oops, something went wrong : " + msg.error.error_msg);
 						}
 						if (msg.error.error_code == 14) {
 							showCaptcha(msg.error.captcha_sid, msg.error.captcha_img);
@@ -112,7 +114,7 @@ function loadFileAsText() {
 					};
 
 					if (msg.response == 0) {
-						appendError("Sorry, Something went wrong building your playlist :( ");
+						prependError("Sorry, Something went wrong building your playlist :( ");
 						return;
 					};
 
@@ -136,7 +138,7 @@ function loadFileAsText() {
 				if (i == playlistarray.length - 1) {
 					window.searchforplaylist(window.correctplaylistarray[0][i], null, null);
 					i++;
-					setTimeout(forloop, 300);
+					setTimeout(forloop, 1000);
 					// uncomment below to make playlist start playing on load
 					//             $('#playlist-item > li:nth-child(1)').trigger('click'); 
 
@@ -147,9 +149,10 @@ function loadFileAsText() {
 					// actions for every playlist item
 					window.searchforplaylist(window.correctplaylistarray[0][i], null, null);
 					i++;
-					setTimeout(forloop, 300);
+					setTimeout(forloop, 1000);
 				}
 			}
+			window.songendlistener();
 		}
 		forloop();
 

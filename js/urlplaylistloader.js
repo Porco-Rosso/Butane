@@ -2,7 +2,7 @@
 
 		var hash = window.location.hash;
 
-		var playlistURL = "https://jsonp.afeld.me/?url=" + hash.substring(1, hash.length);
+		var playlistURL = "https://crossorigin.me/" + hash.substring(1, hash.length);
 		$.get(playlistURL, function (playlistURLdata) {
 			console.log(playlistURLdata);
 
@@ -77,13 +77,13 @@
 					if (i == playlistarray.length - 1) {
 						window.searchforplaylist(window.correctplaylistarray[0][i], null, null);
 						i++;
-						setTimeout(forloop, 300);
+						setTimeout(forloop, 1000);
 
 					} else {
 						// actions for every playlist item
 						window.searchforplaylist(window.correctplaylistarray[0][i], null, null);
 						i++;
-						setTimeout(forloop, 300);
+						setTimeout(forloop, 1000);
 					}
 				}
 			}
