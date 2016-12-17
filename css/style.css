@@ -70,10 +70,10 @@ body {
 }
 
 #info-button:hover{
-    color: #FFF;  
+    color: #FFF;
 }
 #info-button:active{
-    color: #286090;  
+    color: #286090;
 }
 
 .glyphicon-info-sign:before {
@@ -105,7 +105,7 @@ audio {
 .player-container{
 	margin-top: 20px;
     margin-left: 12px;
-    margin-right: 25px;    
+    margin-right: 25px;
 }
 
 .wrapper {
@@ -152,7 +152,7 @@ audio {
 #playlist-list-item li a {
     pointer-events: none;
     width: 100%;
-    font-family: 'Roboto', sans-serif; 
+    font-family: 'Roboto', sans-serif;
 }
 
 #playlist-item > li > span.fa-li.fa.fa-cloud-download{
@@ -180,7 +180,7 @@ audio {
     margin-top: 2px;
     padding-bottom: 3px;
     padding-top: 3px;
-	
+
 		/*	animate.css*/
   -webkit-animation-duration: 0.2s;
   -mos-animation-duration: 0.2s;
@@ -257,7 +257,7 @@ color: #DC3D24;
 	width: 100%;
 	z-index: 10;
 	height: 45px;
-	
+
 }
 #footer .container {
     width: auto;
@@ -384,8 +384,8 @@ li.list-group-item a:hover {
     font-weight: bold;
     font-size: 18px;
     background: linear-gradient(90deg, #3C3C3C 30%, #333333 70%);
-    
-    
+
+
 }
 .selected a {
     font-weight: bold;
@@ -445,7 +445,7 @@ border: 1px solid #A6A6A6;
     color: white;
     padding: 15px 15px 0;
     font-size: 32px;
-    
+
 }
 
 #inputFileNameToSaveAs{
@@ -477,13 +477,13 @@ margin-top: 10px;
 /* height: 400px;*/
  margin-left: 20px;
  margin-top: 10px;
-    
+
       background-color: rgba(0, 0, 0, 0);
       border-color: transparent;
       color: rgba(86, 86, 86, 1);
-    
+
       overflow: auto;
-      resize: none;    
+      resize: none;
 }
 
 /*For iphone and mobile devices*/
@@ -500,7 +500,7 @@ margin-top: 10px;
         min-height: 45px;
         }
         .navbar-brand {
-        padding-top: 10px; 
+        padding-top: 10px;
         }
         .logo-image {
         height: 28px;
@@ -511,7 +511,7 @@ margin-top: 10px;
         .play {
         padding: 3px 7px;
         }
-    
+
         .switch {
         display:none;
     }
@@ -536,7 +536,7 @@ margin-top: 10px;
 	-o-transition: background-color 0.2s ease-in-out;
 	-ms-transition: background-color 0.2s ease-in-out;
 	transition: background-color 0.2s ease-in-out;
-    
+
     margin-right: 18px;
     float: right;
 }
@@ -607,4 +607,12 @@ margin-top: 10px;
 
 input[type=checkbox] {
     margin: 0px 0 0;
+}
+
+.well{
+  margin-top: 20px;
+  color: #e4e4e4;
+  background-color: #333;
+  border-color: #555;
+  text-align: center;
 }

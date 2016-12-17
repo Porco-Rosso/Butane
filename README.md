@@ -1,6 +1,16 @@
 <img src=https://raw.githubusercontent.com/Porco-Rosso/Butane/master/images/Logo.png width=90/><br>Butane
 =====
 
+
+<h1>Butane no longer works</h1>
+
+It's been a great ride, and I want to thank everyone who used the service in the past. This project singlehandedly kickstarted my learning of coding, and has taught me many new skills along the way. 
+
+Unfortunately, all great things must come to an end. Vk.com, the souce of the audio files has decided to discontinue their public audio API after an agreement with rightsholders. This means that butane is no longer able to fetch music for your enjoyment.
+
+It's been fun, all the best luck with finding another music source!
+
+---
 *A web app to search and download free music from Vk.com*
 
 <h3>Features:</h3>
