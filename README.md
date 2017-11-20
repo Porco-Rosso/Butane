@@ -2,7 +2,7 @@
 =====
 
 
-<h1>Butane no longer works</h1>
+# Butane no longer works
 
 It's been a great ride, and I want to thank everyone who used the service in the past. This project singlehandedly kickstarted my learning of coding, and has taught me many new skills along the way. 
 
@@ -13,16 +13,16 @@ It's been fun, all the best luck with finding another music source!
 ---
 *A web app to search and download free music from Vk.com*
 
-<h3>Features:</h3>
-- Superfast search queries
-- Ginormous database of songs
-- Clean interface
-- On the fly playlist creation
-- Playlist export/import as simple human-readable `.txt` files
-- Linkable URL Hashtag searches <a href="https://rawgit.com/Porco-Rosso/Butane/master/index.html#French+Kiwi+Juice">butane.stereostance.com/#French Kiwi Juice</a>
-- Linkable URL Hashtag playlists <a href="https://rawgit.com/Porco-Rosso/Butane/master/index.html#https://my.mixtape.moe/jtjxub.txt">butane.stereostance.com/#https://my.mixtape.moe/jtjxub.txt</a>
-- Hotkey functionality (ie: → for next song, `spacebar` for play/pause)
-- Companion Soundcloud & Youtube <a href="https://github.com/Porco-Rosso/Butane-userscript">userscript!</a>
+### Features:
+* Superfast search queries
+* Ginormous database of songs
+* Clean interface
+* On the fly playlist creation
+* Playlist export/import as simple human-readable `.txt` files
+* Linkable URL Hashtag searches <a href="https://rawgit.com/Porco-Rosso/Butane/master/index.html#French+Kiwi+Juice">butane.stereostance.com/#French Kiwi Juice</a>
+* Linkable URL Hashtag playlists <a href="https://rawgit.com/Porco-Rosso/Butane/master/index.html#https://my.mixtape.moe/jtjxub.txt">butane.stereostance.com/#https://my.mixtape.moe/jtjxub.txt</a>
+* Hotkey functionality (ie: → for next song, `spacebar` for play/pause)
+* Companion Soundcloud & Youtube <a href="https://github.com/Porco-Rosso/Butane-userscript">userscript!</a>
 
 [<h4>Check it out yourself!</h4>](https://rawgit.com/Porco-Rosso/Butane/master/index.html)
 
