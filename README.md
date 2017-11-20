@@ -19,10 +19,10 @@ It's been fun, all the best luck with finding another music source!
 - Clean interface
 - On the fly playlist creation
 - Playlist export/import as simple human-readable `.txt` files
-- Linkable URL Hashtag searches ([butane.stereostance.com/#French Kiwi Juice](https://rawgit.com/Porco-Rosso/Butane/master/index.html#French+Kiwi+Juice))
-- Linkable URL Hashtag playlists ([butane.stereostance.com/#https://my.mixtape.moe/jtjxub.txt](https://rawgit.com/Porco-Rosso/Butane/master/index.html#https://my.mixtape.moe/jtjxub.txt))
+- Linkable URL Hashtag searches <a href="https://rawgit.com/Porco-Rosso/Butane/master/index.html#French+Kiwi+Juice">butane.stereostance.com/#French Kiwi Juice</a>
+- Linkable URL Hashtag playlists <a href="https://rawgit.com/Porco-Rosso/Butane/master/index.html#https://my.mixtape.moe/jtjxub.txt">butane.stereostance.com/#https://my.mixtape.moe/jtjxub.txt</a>
 - Hotkey functionality (ie: → for next song, `spacebar` for play/pause)
-- Companion Soundcloud & Youtube [userscript!](https://github.com/Porco-Rosso/Butane-userscript)
+- Companion Soundcloud & Youtube <a href="https://github.com/Porco-Rosso/Butane-userscript">userscript!</a>
 
 [<h4>Check it out yourself!</h4>](https://rawgit.com/Porco-Rosso/Butane/master/index.html)
 
@@ -33,7 +33,7 @@ Disclaimer:
 ___
 <img src="https://cloud.githubusercontent.com/assets/7024527/15350038/3cea14ac-1cd7-11e6-80b0-66c2bd91b187.png" width="780">
 <br>
-![Demo Gif](http://i.imgur.com/aiPjsPn.gif)
+<img src="http://i.imgur.com/aiPjsPn.gif">
 
 **Notes:**
 - Based on Alashow's awesome original design: [https://github.com/alashow/music](https://github.com/alashow/music)
